@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA2140C29810005BF02 /* UIKit.framework */; };
+		E6D07EA5140C29810005BF02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA4140C29810005BF02 /* Foundation.framework */; };
+		E6D07EA7140C29810005BF02 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA6140C29810005BF02 /* CoreGraphics.framework */; };
+		E6D07EAD140C29810005BF02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EAB140C29810005BF02 /* InfoPlist.strings */; };
+		E6D07EB0140C29810005BF02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EAF140C29810005BF02 /* main.m */; };
+		E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */; };
+		E6D07EB6140C29820005BF02 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EB4140C29820005BF02 /* MainWindow.xib */; };
+		E6D07EB9140C29820005BF02 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EB8140C29820005BF02 /* AzbukaViewController.m */; };
+		E6D07EBC140C29820005BF02 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EBA140C29820005BF02 /* AzbukaViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E6D07E9E140C29810005BF02 /* Azbuka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Azbuka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6D07EA2140C29810005BF02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E6D07EA4140C29810005BF02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E6D07EA6140C29810005BF02 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E6D07EAA140C29810005BF02 /* Azbuka-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Azbuka-Info.plist"; sourceTree = "<group>"; };
+		E6D07EAC140C29810005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E6D07EAE140C29810005BF02 /* Azbuka-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Azbuka-Prefix.pch"; sourceTree = "<group>"; };
+		E6D07EAF140C29810005BF02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AzbukaAppDelegate.h; sourceTree = "<group>"; };
+		E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AzbukaAppDelegate.m; sourceTree = "<group>"; };
+		E6D07EB5140C29820005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		E6D07EB7140C29820005BF02 /* AzbukaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
+		E6D07EB8140C29820005BF02 /* AzbukaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
+		E6D07EBB140C29820005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AzbukaViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E6D07E9B140C29810005BF02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */,
+				E6D07EA5140C29810005BF02 /* Foundation.framework in Frameworks */,
+				E6D07EA7140C29810005BF02 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E6D07E93140C29810005BF02 = {
+			isa = PBXGroup;
+			children = (
+				E6D07EA8140C29810005BF02 /* Azbuka */,
+				E6D07EA1140C29810005BF02 /* Frameworks */,
+				E6D07E9F140C29810005BF02 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6D07E9F140C29810005BF02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6D07E9E140C29810005BF02 /* Azbuka.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E6D07EA1140C29810005BF02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6D07EA2140C29810005BF02 /* UIKit.framework */,
+				E6D07EA4140C29810005BF02 /* Foundation.framework */,
+				E6D07EA6140C29810005BF02 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6D07EA8140C29810005BF02 /* Azbuka */ = {
+			isa = PBXGroup;
+			children = (
+				E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */,
+				E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */,
+				E6D07EB4140C29820005BF02 /* MainWindow.xib */,
+				E6D07EB7140C29820005BF02 /* AzbukaViewController.h */,
+				E6D07EB8140C29820005BF02 /* AzbukaViewController.m */,
+				E6D07EBA140C29820005BF02 /* AzbukaViewController.xib */,
+				E6D07EA9140C29810005BF02 /* Supporting Files */,
+			);
+			path = Azbuka;
+			sourceTree = "<group>";
+		};
+		E6D07EA9140C29810005BF02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6D07EAA140C29810005BF02 /* Azbuka-Info.plist */,
+				E6D07EAB140C29810005BF02 /* InfoPlist.strings */,
+				E6D07EAE140C29810005BF02 /* Azbuka-Prefix.pch */,
+				E6D07EAF140C29810005BF02 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E6D07E9D140C29810005BF02 /* Azbuka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6D07EBF140C29820005BF02 /* Build configuration list for PBXNativeTarget "Azbuka" */;
+			buildPhases = (
+				E6D07E9A140C29810005BF02 /* Sources */,
+				E6D07E9B140C29810005BF02 /* Frameworks */,
+				E6D07E9C140C29810005BF02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Azbuka;
+			productName = Azbuka;
+			productReference = E6D07E9E140C29810005BF02 /* Azbuka.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E6D07E95140C29810005BF02 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = E6D07E98140C29810005BF02 /* Build configuration list for PBXProject "Azbuka" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E6D07E93140C29810005BF02;
+			productRefGroup = E6D07E9F140C29810005BF02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6D07E9D140C29810005BF02 /* Azbuka */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6D07E9C140C29810005BF02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6D07EAD140C29810005BF02 /* InfoPlist.strings in Resources */,
+				E6D07EB6140C29820005BF02 /* MainWindow.xib in Resources */,
+				E6D07EBC140C29820005BF02 /* AzbukaViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E6D07E9A140C29810005BF02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6D07EB0140C29810005BF02 /* main.m in Sources */,
+				E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */,
+				E6D07EB9140C29820005BF02 /* AzbukaViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E6D07EAB140C29810005BF02 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6D07EAC140C29810005BF02 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E6D07EB4140C29820005BF02 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6D07EB5140C29820005BF02 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		E6D07EBA140C29820005BF02 /* AzbukaViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6D07EBB140C29820005BF02 /* en */,
+			);
+			name = AzbukaViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E6D07EBD140C29820005BF02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E6D07EBE140C29820005BF02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		E6D07EC0140C29820005BF02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Azbuka/Azbuka-Prefix.pch";
+				INFOPLIST_FILE = "Azbuka/Azbuka-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E6D07EC1140C29820005BF02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Azbuka/Azbuka-Prefix.pch";
+				INFOPLIST_FILE = "Azbuka/Azbuka-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E6D07E98140C29810005BF02 /* Build configuration list for PBXProject "Azbuka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6D07EBD140C29820005BF02 /* Debug */,
+				E6D07EBE140C29820005BF02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6D07EBF140C29820005BF02 /* Build configuration list for PBXNativeTarget "Azbuka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6D07EC0140C29820005BF02 /* Debug */,
+				E6D07EC1140C29820005BF02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E6D07E95140C29810005BF02 /* Project object */;
+}
