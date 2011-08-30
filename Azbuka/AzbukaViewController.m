@@ -1,41 +1,71 @@
 #import "AzbukaViewController.h"
+#import "CGGeometry+Utils.h"
+#import "Azbuka.h"
 
 @implementation AzbukaViewController
 
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];    
+    letterView.delegate = self;
+    letterView.dataSource = self;
+    [letterView reloadData];
+    
+    [azbuka addObserver:self
+             forKeyPath:@"selectedLetterIndex"
+                options:(NSKeyValueObservingOptionNew |
+                         NSKeyValueObservingOptionOld)
+                context:NULL];
+}
+
 - (void)dealloc
 {
+    [azbuka release];
+     
+    [navigatorView release];
+    [letterView release];
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
+#pragma mark UIViewController
 
-#pragma mark - View lifecycle
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-*/
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return YES;
+}
+
+#pragma mark LeavesViewDelegate/Data source
+
+- (NSUInteger) numberOfPagesInLeavesView:(LeavesView*)letterView{
+    return 33;
+}
+
+- (void) renderPageAtIndex:(NSUInteger)index inContext:(CGContextRef)ctx{
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.JPG", index+1]];
+    CGSize sz = CGSizeFitIntoSize(image.size, letterView.bounds.size);
+    CGRect rect = (CGRect){CGPointZero, sz};
+    rect = CGRectCenterToRect(rect, letterView.bounds);
+    
+    CGContextDrawImage(ctx, rect, image.CGImage);
+}
+
+- (void) leavesView:(LeavesView *)leavesView didTurnToPageAtIndex:(NSUInteger)pageIndex{
+    azbuka.selectedLetterIndex = pageIndex;
+}
+
+#pragma mark event handling
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqual:@"selectedLetterIndex"]) {
+        letterView.currentPageIndex = azbuka.selectedLetterIndex;
+    }
 }
 
 @end
