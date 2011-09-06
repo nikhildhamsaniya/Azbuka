@@ -40,8 +40,6 @@
 		E60844FB140C30E800FBD59E /* 31.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844DA140C30E800FBD59E /* 31.JPG */; };
 		E60844FC140C30E800FBD59E /* 32.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844DB140C30E800FBD59E /* 32.JPG */; };
 		E60844FD140C30E800FBD59E /* 33.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844DC140C30E800FBD59E /* 33.JPG */; };
-		E60845DF140C472A00FBD59E /* LeavesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845DE140C472A00FBD59E /* LeavesView.m */; };
-		E60845E2140C473700FBD59E /* LeavesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845E1140C473700FBD59E /* LeavesCache.m */; };
 		E60845EC140C49A400FBD59E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60845EB140C49A400FBD59E /* QuartzCore.framework */; };
 		E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */; };
 		E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA2140C29810005BF02 /* UIKit.framework */; };
@@ -55,7 +53,6 @@
 		E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */; };
 		E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */; };
 		E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */; };
-		E6EB8B911415DE79009FD6D9 /* LetterLister.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B901415DE78009FD6D9 /* LetterLister.m */; };
 		E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B92141605F9009FD6D9 /* next_button.png */; };
 		E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B93141605F9009FD6D9 /* prev_button.png */; };
 		E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B9714161BC7009FD6D9 /* LetterView.m */; };
@@ -97,10 +94,6 @@
 		E60844DA140C30E800FBD59E /* 31.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 31.JPG; sourceTree = "<group>"; };
 		E60844DB140C30E800FBD59E /* 32.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 32.JPG; sourceTree = "<group>"; };
 		E60844DC140C30E800FBD59E /* 33.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 33.JPG; sourceTree = "<group>"; };
-		E60845DD140C472A00FBD59E /* LeavesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeavesView.h; path = leaves/Leaves/LeavesView.h; sourceTree = "<group>"; };
-		E60845DE140C472A00FBD59E /* LeavesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeavesView.m; path = leaves/Leaves/LeavesView.m; sourceTree = "<group>"; };
-		E60845E0140C473700FBD59E /* LeavesCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeavesCache.h; path = leaves/Leaves/LeavesCache.h; sourceTree = "<group>"; };
-		E60845E1140C473700FBD59E /* LeavesCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeavesCache.m; path = leaves/Leaves/LeavesCache.m; sourceTree = "<group>"; };
 		E60845EB140C49A400FBD59E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E60845FC140C4D7B00FBD59E /* CGGeometry+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CGGeometry+Utils.h"; path = "Azbuka/CGGeometry+Utils.h"; sourceTree = "<group>"; };
 		E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CGGeometry+Utils.m"; path = "Azbuka/CGGeometry+Utils.m"; sourceTree = "<group>"; };
@@ -122,8 +115,6 @@
 		E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
 		E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
 		E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AzbukaViewController.xib; sourceTree = "<group>"; };
-		E6EB8B8F1415DE78009FD6D9 /* LetterLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterLister.h; sourceTree = "<group>"; };
-		E6EB8B901415DE78009FD6D9 /* LetterLister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterLister.m; sourceTree = "<group>"; };
 		E6EB8B92141605F9009FD6D9 /* next_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_button.png; sourceTree = "<group>"; };
 		E6EB8B93141605F9009FD6D9 /* prev_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_button.png; sourceTree = "<group>"; };
 		E6EB8B9614161BC6009FD6D9 /* LetterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterView.h; sourceTree = "<group>"; };
@@ -199,21 +190,9 @@
 			name = letters;
 			sourceTree = "<group>";
 		};
-		E60845DC140C46FC00FBD59E /* leaves */ = {
-			isa = PBXGroup;
-			children = (
-				E60845E0140C473700FBD59E /* LeavesCache.h */,
-				E60845E1140C473700FBD59E /* LeavesCache.m */,
-				E60845DD140C472A00FBD59E /* LeavesView.h */,
-				E60845DE140C472A00FBD59E /* LeavesView.m */,
-			);
-			name = leaves;
-			sourceTree = "<group>";
-		};
 		E60845F5140C4C7F00FBD59E /* Other sources */ = {
 			isa = PBXGroup;
 			children = (
-				E60845DC140C46FC00FBD59E /* leaves */,
 				E60845FC140C4D7B00FBD59E /* CGGeometry+Utils.h */,
 				E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */,
 			);
@@ -264,8 +243,6 @@
 				E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */,
 				E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */,
 				E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */,
-				E6EB8B8F1415DE78009FD6D9 /* LetterLister.h */,
-				E6EB8B901415DE78009FD6D9 /* LetterLister.m */,
 				E6EB8B9614161BC6009FD6D9 /* LetterView.h */,
 				E6EB8B9714161BC7009FD6D9 /* LetterView.m */,
 			);
@@ -382,13 +359,10 @@
 			files = (
 				E6D07EB0140C29810005BF02 /* main.m in Sources */,
 				E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */,
-				E60845DF140C472A00FBD59E /* LeavesView.m in Sources */,
-				E60845E2140C473700FBD59E /* LeavesCache.m in Sources */,
 				E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */,
 				E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */,
 				E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */,
 				E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */,
-				E6EB8B911415DE79009FD6D9 /* LetterLister.m in Sources */,
 				E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
