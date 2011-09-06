@@ -44,9 +44,6 @@
 		E60845E2140C473700FBD59E /* LeavesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845E1140C473700FBD59E /* LeavesCache.m */; };
 		E60845EC140C49A400FBD59E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60845EB140C49A400FBD59E /* QuartzCore.framework */; };
 		E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */; };
-		E608461D140C526400FBD59E /* LettersNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E608461C140C526400FBD59E /* LettersNavigatorView.m */; };
-		E6084620140C66A100FBD59E /* AzbukaView.m in Sources */ = {isa = PBXBuildFile; fileRef = E608461F140C66A100FBD59E /* AzbukaView.m */; };
-		E6084623140C688200FBD59E /* Azbuka.m in Sources */ = {isa = PBXBuildFile; fileRef = E6084622140C688200FBD59E /* Azbuka.m */; };
 		E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA2140C29810005BF02 /* UIKit.framework */; };
 		E6D07EA5140C29810005BF02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA4140C29810005BF02 /* Foundation.framework */; };
 		E6D07EA7140C29810005BF02 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA6140C29810005BF02 /* CoreGraphics.framework */; };
@@ -54,8 +51,10 @@
 		E6D07EB0140C29810005BF02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EAF140C29810005BF02 /* main.m */; };
 		E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */; };
 		E6D07EB6140C29820005BF02 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EB4140C29820005BF02 /* MainWindow.xib */; };
-		E6D07EB9140C29820005BF02 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EB8140C29820005BF02 /* AzbukaViewController.m */; };
-		E6D07EBC140C29820005BF02 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EBA140C29820005BF02 /* AzbukaViewController.xib */; };
+		E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */; };
+		E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */; };
+		E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */; };
+		E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,12 +98,6 @@
 		E60845EB140C49A400FBD59E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E60845FC140C4D7B00FBD59E /* CGGeometry+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CGGeometry+Utils.h"; path = "Azbuka/CGGeometry+Utils.h"; sourceTree = "<group>"; };
 		E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CGGeometry+Utils.m"; path = "Azbuka/CGGeometry+Utils.m"; sourceTree = "<group>"; };
-		E608461B140C526400FBD59E /* LettersNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LettersNavigatorView.h; sourceTree = "<group>"; };
-		E608461C140C526400FBD59E /* LettersNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LettersNavigatorView.m; sourceTree = "<group>"; };
-		E608461E140C66A100FBD59E /* AzbukaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaView.h; sourceTree = "<group>"; };
-		E608461F140C66A100FBD59E /* AzbukaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaView.m; sourceTree = "<group>"; };
-		E6084621140C688200FBD59E /* Azbuka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Azbuka.h; sourceTree = "<group>"; };
-		E6084622140C688200FBD59E /* Azbuka.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Azbuka.m; sourceTree = "<group>"; };
 		E6D07E9E140C29810005BF02 /* Azbuka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Azbuka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D07EA2140C29810005BF02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E6D07EA4140C29810005BF02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,9 +109,13 @@
 		E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AzbukaAppDelegate.h; sourceTree = "<group>"; };
 		E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AzbukaAppDelegate.m; sourceTree = "<group>"; };
 		E6D07EB5140C29820005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		E6D07EB7140C29820005BF02 /* AzbukaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
-		E6D07EB8140C29820005BF02 /* AzbukaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
-		E6D07EBB140C29820005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AzbukaViewController.xib; sourceTree = "<group>"; };
+		E6EB8B841415B586009FD6D9 /* AzbukaLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaLayoutView.h; sourceTree = "<group>"; };
+		E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaLayoutView.m; sourceTree = "<group>"; };
+		E6EB8B871415C199009FD6D9 /* UIImage+Azbuka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Azbuka.h"; sourceTree = "<group>"; };
+		E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Azbuka.m"; sourceTree = "<group>"; };
+		E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
+		E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
+		E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AzbukaViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,18 +236,16 @@
 			isa = PBXGroup;
 			children = (
 				E6D07EA9140C29810005BF02 /* Supporting Files */,
+				E6EB8B871415C199009FD6D9 /* UIImage+Azbuka.h */,
+				E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */,
 				E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */,
 				E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */,
 				E6D07EB4140C29820005BF02 /* MainWindow.xib */,
-				E6D07EB7140C29820005BF02 /* AzbukaViewController.h */,
-				E6D07EB8140C29820005BF02 /* AzbukaViewController.m */,
-				E6D07EBA140C29820005BF02 /* AzbukaViewController.xib */,
-				E608461B140C526400FBD59E /* LettersNavigatorView.h */,
-				E608461C140C526400FBD59E /* LettersNavigatorView.m */,
-				E608461E140C66A100FBD59E /* AzbukaView.h */,
-				E608461F140C66A100FBD59E /* AzbukaView.m */,
-				E6084621140C688200FBD59E /* Azbuka.h */,
-				E6084622140C688200FBD59E /* Azbuka.m */,
+				E6EB8B841415B586009FD6D9 /* AzbukaLayoutView.h */,
+				E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */,
+				E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */,
+				E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */,
+				E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */,
 			);
 			path = Azbuka;
 			sourceTree = "<group>";
@@ -315,7 +310,6 @@
 			files = (
 				E6D07EAD140C29810005BF02 /* InfoPlist.strings in Resources */,
 				E6D07EB6140C29820005BF02 /* MainWindow.xib in Resources */,
-				E6D07EBC140C29820005BF02 /* AzbukaViewController.xib in Resources */,
 				E60844DD140C30E800FBD59E /* 1.JPG in Resources */,
 				E60844DE140C30E800FBD59E /* 2.JPG in Resources */,
 				E60844DF140C30E800FBD59E /* 3.JPG in Resources */,
@@ -349,6 +343,7 @@
 				E60844FB140C30E800FBD59E /* 31.JPG in Resources */,
 				E60844FC140C30E800FBD59E /* 32.JPG in Resources */,
 				E60844FD140C30E800FBD59E /* 33.JPG in Resources */,
+				E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,13 +356,12 @@
 			files = (
 				E6D07EB0140C29810005BF02 /* main.m in Sources */,
 				E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */,
-				E6D07EB9140C29820005BF02 /* AzbukaViewController.m in Sources */,
 				E60845DF140C472A00FBD59E /* LeavesView.m in Sources */,
 				E60845E2140C473700FBD59E /* LeavesCache.m in Sources */,
 				E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */,
-				E608461D140C526400FBD59E /* LettersNavigatorView.m in Sources */,
-				E6084620140C66A100FBD59E /* AzbukaView.m in Sources */,
-				E6084623140C688200FBD59E /* Azbuka.m in Sources */,
+				E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */,
+				E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */,
+				E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,14 +382,6 @@
 				E6D07EB5140C29820005BF02 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		E6D07EBA140C29820005BF02 /* AzbukaViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E6D07EBB140C29820005BF02 /* en */,
-			);
-			name = AzbukaViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -13,6 +13,7 @@ CGRect CGRectScale(CGRect original, float scale);
 CGRect CGRectConsume(CGRect r, CGPoint pt);
 CGSize CGSizeFitIntoSize(CGSize original, CGSize fitInto);
 CGSize CGSizeEnvelopSize(CGSize original, CGSize envelopOf);
+CGRect CGSizeFitIntoRect(CGSize original, CGRect fitInto);
 
 CGPoint CGRectCenter(CGRect r);
 CGRect CGRectCenterToPoint(CGRect original, CGPoint newCenter);

@@ -49,6 +49,13 @@ CGSize CGSizeFitIntoSize(CGSize original, CGSize fitInto){
 	return result;	 
 }
 
+CGRect CGSizeFitIntoRect(CGSize original, CGRect fitInto){
+    CGSize sz = CGSizeFitIntoSize(original, fitInto.size);
+    CGRect r = (CGRect){CGPointZero, sz};
+    r = CGRectCenterToRect(r, fitInto);
+    return  r;
+}
+
 CGSize CGSizeEnvelopSize(CGSize original, CGSize envelopOf){	
 	if(original.width == 0.0 || original.height == 0){
 		return CGSizeMake(0, 0);
