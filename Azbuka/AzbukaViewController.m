@@ -40,23 +40,6 @@
     } else{
         [azbukaView exposeLetter:index uponCompletionDo:nil];  
     }
-    
-    
-    
-//    ^(void){
-//        LetterLister *lister = [[[LetterLister alloc] initWithFrame:view.bounds] autorelease];  
-//        lister.autoresizingMask =       UIViewAutoresizingFlexibleLeftMargin |
-//        UIViewAutoresizingFlexibleWidth |
-//        UIViewAutoresizingFlexibleRightMargin |
-//        UIViewAutoresizingFlexibleTopMargin   |
-//        UIViewAutoresizingFlexibleHeight       |
-//        UIViewAutoresizingFlexibleBottomMargin;
-//        
-//        [lister reloadData];
-//        lister.currentPageIndex = index;
-//        [view addSubview:lister];
-//        
-//    }
 }
 
 @end

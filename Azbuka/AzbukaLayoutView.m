@@ -1,6 +1,7 @@
 #import "AzbukaLayoutView.h"
 #import "CGGeometry+Utils.h"
 #import "UIImage+Azbuka.h"
+#import "LetterView.h"
 
 static const float GAP = 5;
 static const int colsInPortrait = 6;
@@ -12,16 +13,6 @@ static const float animationDuration = 0.5;
 @synthesize  exposedLetter;
 
 #pragma mark private
-
--(UIImageView*)viewForImage:(UIImage*)im{
-    UIImageView *v = [[[UIImageView alloc] initWithImage:im] autorelease];
-    v.contentMode = UIViewContentModeScaleAspectFit;
-    v.userInteractionEnabled = YES;
-    UIGestureRecognizer *gr = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)] autorelease];
-    [v addGestureRecognizer:gr];
-    
-    return v;
-}
 
 -(void)calcCols:(int*)pCols rows:(int*)pRows colsInLastRow:(int*)pColsInLastRow{
     if(UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation)){
@@ -44,15 +35,7 @@ static const float animationDuration = 0.5;
     return  cellSize;
 }
 
--(void)privateInit{
-    NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:33];
-    [UIImage withEachLetterDo:^(UIImage* image){
-        UIImageView* v = [self viewForImage:image];
-        [self addSubview:v];
-        [tmp addObject:v];
-    }];
-    letters = [tmp copy];
-
+-(void)initButtons{
     UIImage *im = [UIImage imageNamed:@"prev_button.png"];
     prevButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [prevButton setImage:im forState:UIControlStateNormal];
@@ -66,9 +49,32 @@ static const float animationDuration = 0.5;
     nextButton.bounds = (CGRect){CGPointZero, im.size};
     [nextButton addTarget:self action:@selector(onNextButton) forControlEvents:UIControlEventTouchUpInside];
     nextButton.alpha = 0; nextButton.hidden = YES;
-    [self addSubview:nextButton];
+    [self addSubview:nextButton];    
 }
 
+-(void)initLetters{
+    NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:33];
+    for(int i = 0; i < 33; i++){
+        LetterView *v = [[[LetterView alloc] initWithLetterIndex:i] autorelease];
+        v.thumbnailSize = [self gridCellSize];
+        [v beThumbnail];
+        UIGestureRecognizer *gr = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)] autorelease];
+        [v addGestureRecognizer:gr];
+        
+        [self addSubview:v];
+        [tmp addObject:v];
+    }
+    letters = [tmp copy];
+}
+
+-(void)privateInit{
+    [self initLetters];
+    [self initButtons];
+}
+
+-(int)exposedLetterIndex{
+    return [letters indexOfObject:exposedLetter];
+}
 
 -(CGRect)exposedLetterRect{
     BOOL isPortrait = UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
@@ -88,7 +94,7 @@ static const float animationDuration = 0.5;
     exposedLetter.frame = [self exposedLetterRect];
 }
 
--(void)deckLetter:(UIImageView*)v{
+-(void)deckLetter:(LetterView*)v{
     CGPoint deckAnchor = CGPointMake(100, self.bounds.size.height - 100);
     
     CGPoint shift = CGPointMake(10-rand()%20, 10-rand()%20);
@@ -99,7 +105,7 @@ static const float animationDuration = 0.5;
 }
 
 -(void)deckOtherLetters{
-    for (UIImageView *v in letters) {
+    for (LetterView *v in letters) {
         if(v != exposedLetter){
             [self deckLetter:v];
         }
@@ -132,7 +138,9 @@ static const float animationDuration = 0.5;
 -(void)showNextLetter:(BOOL)isNext{
     int index = [letters indexOfObject:exposedLetter];
     isNext ? index++ : index--;
-    UIImageView *newExposed = [letters objectAtIndex:index];
+    LetterView *newExposed = [letters objectAtIndex:index];
+    [exposedLetter beThumbnail];
+    [newExposed beFullsized];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
                          [self deckLetter:exposedLetter];
@@ -191,6 +199,7 @@ static const float animationDuration = 0.5;
 -(void)exposeLetter:(int)index uponCompletionDo:(void (^)())aBlock{
     exposedLetter = [letters objectAtIndex:index];
     [self bringSubviewToFront:exposedLetter];
+    [exposedLetter beFullsized];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
                          [self layoutExposedLetter];
@@ -209,6 +218,7 @@ static const float animationDuration = 0.5;
 }
 
 -(void)unexpose{
+    [exposedLetter beThumbnail];
     exposedLetter = nil;
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
@@ -234,11 +244,11 @@ static const float animationDuration = 0.5;
 }
 
 -(void)onPrevButton{
-    [self showNextLetter:NO];     
+    if([self exposedLetterIndex] > 0) [self showNextLetter:NO];     
 }
 
 -(void)onNextButton{
-    [self showNextLetter:YES];
+    if([self exposedLetterIndex] < 32) [self showNextLetter:YES];
 }
 
 

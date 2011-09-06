@@ -59,6 +59,8 @@
 		E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B92141605F9009FD6D9 /* next_button.png */; };
 		E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B93141605F9009FD6D9 /* prev_button.png */; };
 		E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B9714161BC7009FD6D9 /* LetterView.m */; };
+		E6EB8B9C14162B5A009FD6D9 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B9914162B5A009FD6D9 /* Default-Portrait.png */; };
+		E6EB8B9E14162B5A009FD6D9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B9B14162B5A009FD6D9 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,8 @@
 		E6EB8B93141605F9009FD6D9 /* prev_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_button.png; sourceTree = "<group>"; };
 		E6EB8B9614161BC6009FD6D9 /* LetterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterView.h; sourceTree = "<group>"; };
 		E6EB8B9714161BC7009FD6D9 /* LetterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterView.m; sourceTree = "<group>"; };
+		E6EB8B9914162B5A009FD6D9 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		E6EB8B9B14162B5A009FD6D9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 		E60844BA140C2F9500FBD59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E6EB8B9914162B5A009FD6D9 /* Default-Portrait.png */,
+				E6EB8B9B14162B5A009FD6D9 /* icon.png */,
 				E6EB8B92141605F9009FD6D9 /* next_button.png */,
 				E6EB8B93141605F9009FD6D9 /* prev_button.png */,
 				E60844FE140C30EC00FBD59E /* letters */,
@@ -362,6 +368,8 @@
 				E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */,
 				E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */,
 				E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */,
+				E6EB8B9C14162B5A009FD6D9 /* Default-Portrait.png in Resources */,
+				E6EB8B9E14162B5A009FD6D9 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

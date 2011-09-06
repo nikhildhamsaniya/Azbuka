@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
 
+@class LetterView;
+
 @protocol AzbukaLayoutViewProto
 -(void)tappedLetter:(int)index view:(UIView*)view;
 @end
@@ -11,7 +13,7 @@
     UIButton *nextButton;
     
     NSArray *letters;
-    UIImageView *exposedLetter;
+    LetterView *exposedLetter;
 }
 @property(nonatomic, assign) id<AzbukaLayoutViewProto> delegate;
 @property(nonatomic, readonly) UIImageView *exposedLetter;

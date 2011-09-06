@@ -14,7 +14,9 @@
 -(UIImage*)generateThumbnail{
     UIGraphicsBeginImageContext(_thumbnailSize);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextDrawImage(ctx, (CGRect){CGPointZero, _thumbnailSize}, self.originalImage.CGImage);
+    CGRect r = (CGRect){CGPointZero, _thumbnailSize};
+    CGContextConcatCTM(ctx, CGAffineTransformMakeScaleAroundPoint(1, -1, CGRectCenter(r)));
+    CGContextDrawImage(ctx, r, self.originalImage.CGImage);
     UIImage* im =  [UIGraphicsGetImageFromCurrentImageContext() retain];
     UIGraphicsEndImageContext();
     return im;
@@ -28,7 +30,7 @@
 #pragma mark properties
 
 -(void)setThumbnailSize:(CGSize)thumbnailSize{
-    _thumbnailSize = CGSizeFitIntoSize(self.originalImage.size, thumbnailSize);
+    _thumbnailSize = CGSizeScale( CGSizeFitIntoSize(self.originalImage.size, thumbnailSize), 2);
     [thumbnailImage release];
     thumbnailImage = nil;
 }
@@ -39,11 +41,15 @@
     self = [super init];
     if (self) {
         letterIndex = index;
-        
+       
+        self.contentMode = UIViewContentModeScaleAspectFit;
+        self.userInteractionEnabled = YES;
+
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOpacity = 1.0;
         self.layer.shadowOffset = CGSizeMake(3, 3);
-        self.layer.shadowRadius = 3;        
+        self.layer.shadowRadius = 3;   
+        self.layer.shouldRasterize = YES;
     }
     return self;    
 }
