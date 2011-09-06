@@ -2,7 +2,12 @@
 
 
 @implementation UIImage(Azbuka)
-+(UIImage*)letterWithIndex:(int)index{
-    return [UIImage imageNamed:[NSString stringWithFormat:@"%d.JPG", index]];
+
++(void)withEachLetterDo: (void (^)(UIImage*))aBlock{
+    for(int i = 1; i <= 33; i++){
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.JPG", i]];
+        aBlock(image);
+    }
 }
+
 @end
