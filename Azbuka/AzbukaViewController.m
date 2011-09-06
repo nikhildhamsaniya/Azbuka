@@ -1,49 +1,62 @@
 #import "AzbukaViewController.h"
-
+#import "LetterLister.h"
+#import "CGGeometry+Utils.h"
 
 @implementation AzbukaViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+#pragma mark private
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
+#pragma mark lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    azbukaView.delegate = self;
 }
 
-- (void)viewDidUnload
+
+- (void)dealloc
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    azbukaView.delegate = nil;
+    [azbukaView release];    
+    [super dealloc];
 }
+
+
+
+#pragma mark UIViewController
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+#pragma mark AzbukaLayoutViewProto
+
+-(void)tappedLetter:(int)index view:(UIView*)view{
+    if(azbukaView.exposedLetter) {
+        if(view != azbukaView.exposedLetter) [azbukaView unexpose];
+    } else{
+        [azbukaView exposeLetter:index uponCompletionDo:nil];  
+    }
+    
+    
+    
+//    ^(void){
+//        LetterLister *lister = [[[LetterLister alloc] initWithFrame:view.bounds] autorelease];  
+//        lister.autoresizingMask =       UIViewAutoresizingFlexibleLeftMargin |
+//        UIViewAutoresizingFlexibleWidth |
+//        UIViewAutoresizingFlexibleRightMargin |
+//        UIViewAutoresizingFlexibleTopMargin   |
+//        UIViewAutoresizingFlexibleHeight       |
+//        UIViewAutoresizingFlexibleBottomMargin;
+//        
+//        [lister reloadData];
+//        lister.currentPageIndex = index;
+//        [view addSubview:lister];
+//        
+//    }
 }
 
 @end

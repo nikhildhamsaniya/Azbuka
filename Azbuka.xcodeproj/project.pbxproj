@@ -55,6 +55,10 @@
 		E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */; };
 		E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */; };
 		E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */; };
+		E6EB8B911415DE79009FD6D9 /* LetterLister.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B901415DE78009FD6D9 /* LetterLister.m */; };
+		E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B92141605F9009FD6D9 /* next_button.png */; };
+		E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B93141605F9009FD6D9 /* prev_button.png */; };
+		E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B9714161BC7009FD6D9 /* LetterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +120,12 @@
 		E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
 		E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
 		E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AzbukaViewController.xib; sourceTree = "<group>"; };
+		E6EB8B8F1415DE78009FD6D9 /* LetterLister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterLister.h; sourceTree = "<group>"; };
+		E6EB8B901415DE78009FD6D9 /* LetterLister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterLister.m; sourceTree = "<group>"; };
+		E6EB8B92141605F9009FD6D9 /* next_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_button.png; sourceTree = "<group>"; };
+		E6EB8B93141605F9009FD6D9 /* prev_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_button.png; sourceTree = "<group>"; };
+		E6EB8B9614161BC6009FD6D9 /* LetterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterView.h; sourceTree = "<group>"; };
+		E6EB8B9714161BC7009FD6D9 /* LetterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,8 @@
 		E60844BA140C2F9500FBD59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E6EB8B92141605F9009FD6D9 /* next_button.png */,
+				E6EB8B93141605F9009FD6D9 /* prev_button.png */,
 				E60844FE140C30EC00FBD59E /* letters */,
 			);
 			name = Resources;
@@ -246,6 +258,10 @@
 				E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */,
 				E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */,
 				E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */,
+				E6EB8B8F1415DE78009FD6D9 /* LetterLister.h */,
+				E6EB8B901415DE78009FD6D9 /* LetterLister.m */,
+				E6EB8B9614161BC6009FD6D9 /* LetterView.h */,
+				E6EB8B9714161BC7009FD6D9 /* LetterView.m */,
 			);
 			path = Azbuka;
 			sourceTree = "<group>";
@@ -344,6 +360,8 @@
 				E60844FC140C30E800FBD59E /* 32.JPG in Resources */,
 				E60844FD140C30E800FBD59E /* 33.JPG in Resources */,
 				E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */,
+				E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */,
+				E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +380,8 @@
 				E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */,
 				E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */,
 				E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */,
+				E6EB8B911415DE79009FD6D9 /* LetterLister.m in Sources */,
+				E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
