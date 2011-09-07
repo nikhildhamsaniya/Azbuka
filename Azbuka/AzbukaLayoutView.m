@@ -1,6 +1,5 @@
 #import "AzbukaLayoutView.h"
 #import "CGGeometry+Utils.h"
-#import "UIImage+Azbuka.h"
 #import "LetterView.h"
 
 static const float GAP = 5;
@@ -85,6 +84,7 @@ static const float animationDuration = 0.5;
         r.origin.x = (self.bounds.size.width - r.size.width) / 2;
     }else{
         r = self.bounds;
+        r = CGRectInset(r, 0, 5);
     }
     return CGSizeFitIntoRect(exposedLetter.bounds.size, r);
 }
@@ -172,6 +172,16 @@ static const float animationDuration = 0.5;
     [self privateInit];
 }
 
+- (void)dealloc
+{
+    [letters release];
+    [nextButton release];
+    [prevButton release];
+    [super dealloc];
+}
+
+#pragma mark UIView
+
 -(void)layoutSubviews{
     [super layoutSubviews];
     
@@ -183,15 +193,6 @@ static const float animationDuration = 0.5;
     }
     
     [self layoutButtons];
-}
-
-
-- (void)dealloc
-{
-    [letters release];
-    [nextButton release];
-    [prevButton release];
-    [super dealloc];
 }
 
 #pragma mark actions

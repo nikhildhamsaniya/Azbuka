@@ -50,13 +50,12 @@
 		E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */; };
 		E6D07EB6140C29820005BF02 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EB4140C29820005BF02 /* MainWindow.xib */; };
 		E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */; };
-		E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */; };
 		E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */; };
 		E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */; };
 		E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B92141605F9009FD6D9 /* next_button.png */; };
 		E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B93141605F9009FD6D9 /* prev_button.png */; };
 		E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B9714161BC7009FD6D9 /* LetterView.m */; };
-		E6EB8B9C14162B5A009FD6D9 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B9914162B5A009FD6D9 /* Default-Portrait.png */; };
+		E6EB8B9C14162B5A009FD6D9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B9914162B5A009FD6D9 /* Default.png */; };
 		E6EB8B9E14162B5A009FD6D9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B9B14162B5A009FD6D9 /* icon.png */; };
 /* End PBXBuildFile section */
 
@@ -110,8 +109,6 @@
 		E6D07EB5140C29820005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		E6EB8B841415B586009FD6D9 /* AzbukaLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaLayoutView.h; sourceTree = "<group>"; };
 		E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaLayoutView.m; sourceTree = "<group>"; };
-		E6EB8B871415C199009FD6D9 /* UIImage+Azbuka.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Azbuka.h"; sourceTree = "<group>"; };
-		E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Azbuka.m"; sourceTree = "<group>"; };
 		E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
 		E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
 		E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AzbukaViewController.xib; sourceTree = "<group>"; };
@@ -119,7 +116,7 @@
 		E6EB8B93141605F9009FD6D9 /* prev_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_button.png; sourceTree = "<group>"; };
 		E6EB8B9614161BC6009FD6D9 /* LetterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterView.h; sourceTree = "<group>"; };
 		E6EB8B9714161BC7009FD6D9 /* LetterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterView.m; sourceTree = "<group>"; };
-		E6EB8B9914162B5A009FD6D9 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		E6EB8B9914162B5A009FD6D9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E6EB8B9B14162B5A009FD6D9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,7 +138,7 @@
 		E60844BA140C2F9500FBD59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E6EB8B9914162B5A009FD6D9 /* Default-Portrait.png */,
+				E6EB8B9914162B5A009FD6D9 /* Default.png */,
 				E6EB8B9B14162B5A009FD6D9 /* icon.png */,
 				E6EB8B92141605F9009FD6D9 /* next_button.png */,
 				E6EB8B93141605F9009FD6D9 /* prev_button.png */,
@@ -233,8 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				E6D07EA9140C29810005BF02 /* Supporting Files */,
-				E6EB8B871415C199009FD6D9 /* UIImage+Azbuka.h */,
-				E6EB8B881415C199009FD6D9 /* UIImage+Azbuka.m */,
 				E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */,
 				E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */,
 				E6D07EB4140C29820005BF02 /* MainWindow.xib */,
@@ -345,7 +340,7 @@
 				E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */,
 				E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */,
 				E6EB8B95141605F9009FD6D9 /* prev_button.png in Resources */,
-				E6EB8B9C14162B5A009FD6D9 /* Default-Portrait.png in Resources */,
+				E6EB8B9C14162B5A009FD6D9 /* Default.png in Resources */,
 				E6EB8B9E14162B5A009FD6D9 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +356,6 @@
 				E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */,
 				E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */,
 				E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */,
-				E6EB8B891415C199009FD6D9 /* UIImage+Azbuka.m in Sources */,
 				E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */,
 				E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */,
 			);
