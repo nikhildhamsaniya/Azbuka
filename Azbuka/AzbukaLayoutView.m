@@ -56,7 +56,7 @@ static const float animationDuration = 0.5;
     for(int i = 0; i < 33; i++){
         LetterView *v = [[[LetterView alloc] initWithLetterIndex:i] autorelease];
         v.thumbnailSize = [self gridCellSize];
-        [v beThumbnail];
+        [v beThumbnailed];
         UIGestureRecognizer *gr = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)] autorelease];
         [v addGestureRecognizer:gr];
         
@@ -139,7 +139,7 @@ static const float animationDuration = 0.5;
     int index = [letters indexOfObject:exposedLetter];
     isNext ? index++ : index--;
     LetterView *newExposed = [letters objectAtIndex:index];
-    [exposedLetter beThumbnail];
+    [exposedLetter beThumbnailed];
     [newExposed beFullsized];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
@@ -150,10 +150,16 @@ static const float animationDuration = 0.5;
 
 }
 
--(void) layoutButtons{
+-(void) layoutNavigationButtons{
     CGRect letterRect = [self exposedLetterRect];
     prevButton.center = CGPointMake(CGRectGetMinX(letterRect) - 10 - prevButton.bounds.size.width/2, CGRectGetMidY(letterRect));
     nextButton.center = CGPointMake(CGRectGetMaxX(letterRect) + 10 + nextButton.bounds.size.width/2, CGRectGetMidY(letterRect));
+}
+
+#pragma mark properties
+
+-(BOOL)hasExposedLetter{
+    return exposedLetter != nil;
 }
 
 #pragma mark lifecycle
@@ -185,14 +191,13 @@ static const float animationDuration = 0.5;
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    if(exposedLetter){
-        [self layoutExposedLetter]; 
+    if(self.hasExposedLetter){
+        [self layoutExposedLetter];     
         [self deckOtherLetters];
+        [self layoutNavigationButtons];    
     }else{
         [self layoutLetters];
     }
-    
-    [self layoutButtons];
 }
 
 #pragma mark actions
@@ -211,15 +216,16 @@ static const float animationDuration = 0.5;
                          nextButton.alpha = 0.5;
                      }
                      completion:^(BOOL finished){
-                         if(aBlock) aBlock();
+                         [self layoutNavigationButtons];
                          prevButton.userInteractionEnabled = YES;
                          nextButton.userInteractionEnabled = YES;
+                         if(aBlock) aBlock();
                      }
      ];    
 }
 
 -(void)unexpose{
-    [exposedLetter beThumbnail];
+    [exposedLetter beThumbnailed];
     exposedLetter = nil;
     [UIView animateWithDuration:animationDuration
                      animations:^(void){

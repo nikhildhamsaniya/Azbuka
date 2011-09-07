@@ -8,7 +8,7 @@
 @property(nonatomic, assign) CGSize thumbnailSize;
 -(id)initWithLetterIndex:(int)index;
 
--(void)beThumbnail;
+-(void)beThumbnailed;
 -(void)beFullsized;
 
 @end

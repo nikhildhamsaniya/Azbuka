@@ -61,7 +61,7 @@
 
 #pragma mark actions
 
--(void)beThumbnail{
+-(void)beThumbnailed{
     self.image = self.thumbnailImage;
 }
 

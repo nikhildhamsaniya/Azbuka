@@ -17,6 +17,7 @@
 }
 @property(nonatomic, assign) id<AzbukaLayoutViewProto> delegate;
 @property(nonatomic, readonly) UIImageView *exposedLetter;
+@property(nonatomic, readonly) BOOL hasExposedLetter;
 
 -(void)exposeLetter:(int)index uponCompletionDo:(void (^)())aBlock;
 -(void)unexpose;

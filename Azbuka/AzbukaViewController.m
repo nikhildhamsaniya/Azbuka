@@ -34,7 +34,7 @@
 #pragma mark AzbukaLayoutViewProto
 
 -(void)tappedLetter:(int)index view:(UIView*)view{
-    if(azbukaView.exposedLetter) {
+    if(azbukaView.hasExposedLetter) {
         if(view != azbukaView.exposedLetter) [azbukaView unexpose];
     } else{
         [azbukaView exposeLetter:index uponCompletionDo:nil];  
