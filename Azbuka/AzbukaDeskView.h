@@ -3,7 +3,10 @@
 @class LetterView;
 
 @protocol AzbukaDeskViewProto
--(void)tappedLetter:(int)index view:(UIView*)view;
+-(void)willExposeLetter:(int)index view:(UIView*)view;
+-(void)didExposeLetter:(int)index view:(UIView*)view;
+-(void)allLettersWillUnexposed;
+-(void)allLettersDidUnexposed;
 @end
 
 @interface AzbukaDeskView : UIView {
@@ -16,10 +19,10 @@
     LetterView *exposedLetter;
 }
 @property(nonatomic, assign) id<AzbukaDeskViewProto> delegate;
-@property(nonatomic, readonly) UIImageView *exposedLetter;
+@property(nonatomic, readonly) LetterView *exposedLetter;
 @property(nonatomic, readonly) BOOL hasExposedLetter;
 
--(void)exposeLetter:(int)index uponCompletionDo:(void (^)())aBlock;
+-(void)exposeLetter:(int)index;
 -(void)unexpose;
 
 @end

@@ -1,6 +1,7 @@
 #import "LetterView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CGGeometry+Utils.h"
+#import "PaintingView.h"
 
 @implementation LetterView
 @synthesize thumbnailSize = _thumbnailSize;
@@ -25,6 +26,19 @@
 -(UIImage*)thumbnailImage{
     if(!thumbnailImage) thumbnailImage = [self generateThumbnail];
     return thumbnailImage;
+}
+
+-(void)showPainting{
+    if(painting) [painting release];
+    painting = [[PaintingView alloc] initWithFrame:self.bounds];
+    [painting setBrushColorWithRed:0 green:0 blue:1];
+    [self addSubview:painting];
+}
+
+-(void)pickupPainting{
+    [painting removeFromSuperview];
+    [painting release];
+    painting = nil;
 }
 
 #pragma mark properties
@@ -55,19 +69,40 @@
 }
 
 - (void)dealloc {
+    [painting release];
     [thumbnailImage release];
     [super dealloc];
+}
+
+#pragma mark UIView
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+//    painting.frame = self.bounds;
 }
 
 #pragma mark actions
 
 -(void)beThumbnailed{
     self.image = self.thumbnailImage;
+    [self pickupPainting];
+    
 }
 
--(void)beFullsized{
+-(void)willFullsized{
     self.image = self.originalImage;
 }
 
+-(void)didFullsized{
+    [self showPainting];
+}
+
+- (void)erasePainting{
+    [painting erase];   
+}
+
+- (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
+    [painting setBrushColorWithRed:red green:green blue:blue];
+}
 
 @end

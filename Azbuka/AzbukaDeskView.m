@@ -141,12 +141,17 @@ static const float animationDuration = 0.5;
     isNext ? index++ : index--;
     LetterView *newExposed = [letters objectAtIndex:index];
     [exposedLetter beThumbnailed];
-    [newExposed beFullsized];
+    [newExposed willFullsized];
+    [delegate willExposeLetter:index view:exposedLetter];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
                          [self deckLetter:exposedLetter];
                          exposedLetter = newExposed;
                          [self layoutExposedLetter];
+                         [exposedLetter didFullsized];
+                         
+                     } completion:^(BOOL ignore){
+                         [delegate didExposeLetter:index view:exposedLetter];
                      }];    
 
 }
@@ -203,10 +208,11 @@ static const float animationDuration = 0.5;
 
 #pragma mark actions
 
--(void)exposeLetter:(int)index uponCompletionDo:(void (^)())aBlock{
+-(void)exposeLetter:(int)index{
     exposedLetter = [letters objectAtIndex:index];
     [self bringSubviewToFront:exposedLetter];
-    [exposedLetter beFullsized];
+    [exposedLetter willFullsized];
+    [delegate willExposeLetter:index view:exposedLetter];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
                          [self layoutExposedLetter];
@@ -217,10 +223,11 @@ static const float animationDuration = 0.5;
                          nextButton.alpha = 0.5;
                      }
                      completion:^(BOOL finished){
+                         [exposedLetter didFullsized];
                          [self layoutNavigationButtons];
                          prevButton.userInteractionEnabled = YES;
                          nextButton.userInteractionEnabled = YES;
-                         if(aBlock) aBlock();
+                         [delegate didExposeLetter:index view:exposedLetter];
                      }
      ];    
 }
@@ -228,6 +235,7 @@ static const float animationDuration = 0.5;
 -(void)unexpose{
     [exposedLetter beThumbnailed];
     exposedLetter = nil;
+    [delegate allLettersWillUnexposed];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
                          [self layoutLetters];
@@ -239,6 +247,7 @@ static const float animationDuration = 0.5;
                      completion:^(BOOL finished){
                          prevButton.hidden = YES;
                          nextButton.hidden = YES;                         
+                         [delegate allLettersDidUnexposed];
                      }];
 
 }
@@ -246,9 +255,16 @@ static const float animationDuration = 0.5;
 #pragma mark events
 
 -(void)onTapped:(UIGestureRecognizer*)gr{
-    UIView *v = gr.view;
-    int letterIndex = [letters indexOfObject:v];
-    [delegate tappedLetter:letterIndex view:v];
+    LetterView *letter = (LetterView*)gr.view;
+    int letterIndex = [letters indexOfObject:letter];
+    
+    if(self.hasExposedLetter) {
+        if(letter != self.exposedLetter) {
+            [self unexpose];
+        }
+    } else{
+        [self exposeLetter:letterIndex];  
+    }
 }
 
 -(void)onPrevButton{

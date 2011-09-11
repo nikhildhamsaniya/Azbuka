@@ -265,10 +265,6 @@
 		E6D07EA8140C29810005BF02 /* Azbuka */ = {
 			isa = PBXGroup;
 			children = (
-				E637D87C141CDFF100FE4A97 /* PaintingView.h */,
-				E637D87D141CDFF100FE4A97 /* PaintingView.m */,
-				E637D87E141CDFF100FE4A97 /* SoundEffect.h */,
-				E637D87F141CDFF100FE4A97 /* SoundEffect.m */,
 				E6D07EA9140C29810005BF02 /* Supporting Files */,
 				E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */,
 				E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */,
@@ -284,6 +280,10 @@
 				E6EB8B9714161BC7009FD6D9 /* LetterView.m */,
 				E637D837141BF8B200FE4A97 /* PaletteView.h */,
 				E637D838141BF8B200FE4A97 /* PaletteView.m */,
+				E637D87C141CDFF100FE4A97 /* PaintingView.h */,
+				E637D87D141CDFF100FE4A97 /* PaintingView.m */,
+				E637D87E141CDFF100FE4A97 /* SoundEffect.h */,
+				E637D87F141CDFF100FE4A97 /* SoundEffect.m */,
 			);
 			path = Azbuka;
 			sourceTree = "<group>";

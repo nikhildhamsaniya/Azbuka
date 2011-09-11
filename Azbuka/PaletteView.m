@@ -4,6 +4,7 @@
 static const float GAP = 5.0;
 
 @implementation PaletteView
+@synthesize delegate;
 
 #pragma mark private
 
@@ -129,24 +130,46 @@ static const float GAP = 5.0;
 #pragma mark actions
 
 -(void)onRed{
-    
+    selectedColorIndex = 0;
+    [self updateSelectedColor];
 }
 
 -(void)onBlue{
-
+    selectedColorIndex = 1;
+    [self updateSelectedColor];
 }
 
 -(void)onYellow{
-    
+    selectedColorIndex = 2;
+    [self updateSelectedColor];
 }
 
 -(void)onGreen{
-    
+    selectedColorIndex = 3;
+    [self updateSelectedColor];
 }
 
 -(void)onErase{
-    
+    [delegate paletteDidErase];
 }
 
+-(void)updateSelectedColor{
+    switch (selectedColorIndex) {
+        case 0:
+            [delegate paletteDidChooseColorWithRed:1 green:0 blue:0];
+            break;
+        case 1:
+            [delegate paletteDidChooseColorWithRed:0 green:0 blue:1];
+            break;            
+        case 2:
+            [delegate paletteDidChooseColorWithRed:1 green:1 blue:0];
+            break;
+        case 3:
+            [delegate paletteDidChooseColorWithRed:0 green:1 blue:0];
+            break;
+        default:
+            break;
+    }
+}
 
 @end
