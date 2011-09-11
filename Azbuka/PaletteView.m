@@ -1,6 +1,8 @@
 #import "PaletteView.h"
 #import "CGGeometry+Utils.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SoundEffect.h"
+
 static const float GAP = 5.0;
 
 @implementation PaletteView
@@ -130,26 +132,31 @@ static const float GAP = 5.0;
 #pragma mark actions
 
 -(void)onRed{
+    [[SoundEffect selectBrushEffect] play];
     selectedColorIndex = 0;
     [self updateSelectedColor];
 }
 
 -(void)onBlue{
+    [[SoundEffect selectBrushEffect] play];
     selectedColorIndex = 1;
     [self updateSelectedColor];
 }
 
 -(void)onYellow{
+    [[SoundEffect selectBrushEffect] play];
     selectedColorIndex = 2;
     [self updateSelectedColor];
 }
 
 -(void)onGreen{
+    [[SoundEffect selectBrushEffect] play];
     selectedColorIndex = 3;
     [self updateSelectedColor];
 }
 
 -(void)onErase{
+    [[SoundEffect eraseEffect] play];
     [delegate paletteDidErase];
 }
 
