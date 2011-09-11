@@ -171,6 +171,7 @@ CGFloat GetConstraintValue(CGRect rect,  CGRectDimension dimension, CGRectConstr
         case CGRectMidConstraint: 
             return dimension == CGRectHorizontalDimension ? CGRectGetMidX(rect) : CGRectGetMidY(rect);
     }
+    return 0;
 }
 
 CGRect CGRectConstraintToRect(CGRect original, 

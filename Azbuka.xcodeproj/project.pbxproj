@@ -56,7 +56,7 @@
 		E6D07EB0140C29810005BF02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EAF140C29810005BF02 /* main.m */; };
 		E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */; };
 		E6D07EB6140C29820005BF02 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6D07EB4140C29820005BF02 /* MainWindow.xib */; };
-		E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */; };
+		E6EB8B861415B586009FD6D9 /* AzbukaDeskView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B851415B586009FD6D9 /* AzbukaDeskView.m */; };
 		E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */; };
 		E6EB8B8E1415C53C009FD6D9 /* AzbukaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */; };
 		E6EB8B94141605F9009FD6D9 /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EB8B92141605F9009FD6D9 /* next_button.png */; };
@@ -122,8 +122,8 @@
 		E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AzbukaAppDelegate.h; sourceTree = "<group>"; };
 		E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AzbukaAppDelegate.m; sourceTree = "<group>"; };
 		E6D07EB5140C29820005BF02 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		E6EB8B841415B586009FD6D9 /* AzbukaLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaLayoutView.h; sourceTree = "<group>"; };
-		E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaLayoutView.m; sourceTree = "<group>"; };
+		E6EB8B841415B586009FD6D9 /* AzbukaDeskView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AzbukaDeskView.h; sourceTree = "<group>"; };
+		E6EB8B851415B586009FD6D9 /* AzbukaDeskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaDeskView.m; sourceTree = "<group>"; };
 		E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaViewController.h; sourceTree = "<group>"; };
 		E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaViewController.m; sourceTree = "<group>"; };
 		E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AzbukaViewController.xib; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 				E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */,
 				E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */,
 				E6D07EB4140C29820005BF02 /* MainWindow.xib */,
-				E6EB8B841415B586009FD6D9 /* AzbukaLayoutView.h */,
-				E6EB8B851415B586009FD6D9 /* AzbukaLayoutView.m */,
+				E6EB8B841415B586009FD6D9 /* AzbukaDeskView.h */,
+				E6EB8B851415B586009FD6D9 /* AzbukaDeskView.m */,
 				E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */,
 				E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */,
 				E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */,
@@ -384,7 +384,7 @@
 				E6D07EB0140C29810005BF02 /* main.m in Sources */,
 				E6D07EB3140C29810005BF02 /* AzbukaAppDelegate.m in Sources */,
 				E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */,
-				E6EB8B861415B586009FD6D9 /* AzbukaLayoutView.m in Sources */,
+				E6EB8B861415B586009FD6D9 /* AzbukaDeskView.m in Sources */,
 				E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */,
 				E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */,
 				E637D839141BF8B200FE4A97 /* PaletteView.m in Sources */,

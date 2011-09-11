@@ -1,10 +1,10 @@
 #import <UIKit/UIKit.h>
-#import "AzbukaLayoutView.h"
+#import "AzbukaDeskView.h"
 
 @class PaletteView;
 
-@interface AzbukaViewController : UIViewController<AzbukaLayoutViewProto> {
-    IBOutlet AzbukaLayoutView *azbukaView;
+@interface AzbukaViewController : UIViewController<AzbukaDeskViewProto> {
+    IBOutlet AzbukaDeskView *azbukaView;
     IBOutlet PaletteView *paletteView;
 }
 

@@ -1,4 +1,4 @@
-#import "AzbukaLayoutView.h"
+#import "AzbukaDeskView.h"
 #import "CGGeometry+Utils.h"
 #import "LetterView.h"
 
@@ -7,7 +7,7 @@ static const int colsInPortrait = 6;
 static const int colsInLandscape = 7;
 static const float animationDuration = 0.5;
 
-@implementation AzbukaLayoutView
+@implementation AzbukaDeskView
 @synthesize delegate;
 @synthesize  exposedLetter;
 

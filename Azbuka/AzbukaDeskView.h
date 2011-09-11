@@ -2,12 +2,12 @@
 
 @class LetterView;
 
-@protocol AzbukaLayoutViewProto
+@protocol AzbukaDeskViewProto
 -(void)tappedLetter:(int)index view:(UIView*)view;
 @end
 
-@interface AzbukaLayoutView : UIView {
-    id<AzbukaLayoutViewProto> delegate;
+@interface AzbukaDeskView : UIView {
+    id<AzbukaDeskViewProto> delegate;
     
     UIButton *prevButton;
     UIButton *nextButton;
@@ -15,7 +15,7 @@
     NSArray *letters;
     LetterView *exposedLetter;
 }
-@property(nonatomic, assign) id<AzbukaLayoutViewProto> delegate;
+@property(nonatomic, assign) id<AzbukaDeskViewProto> delegate;
 @property(nonatomic, readonly) UIImageView *exposedLetter;
 @property(nonatomic, readonly) BOOL hasExposedLetter;
 
