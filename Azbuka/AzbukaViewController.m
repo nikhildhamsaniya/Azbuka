@@ -42,12 +42,12 @@
     if(deskView.hasExposedLetter) {
         if(view != deskView.exposedLetter) {
             [deskView unexpose];
-            [UIView animateWithDuration:0.5 animations:^(void){paletteView.alpha = 0;} completion:^(BOOL ignore){paletteView.hidden = YES;}];
+            [UIView animateWithDuration:0.3 animations:^(void){paletteView.alpha = 0;} completion:^(BOOL ignore){paletteView.hidden = YES;}];
         }
     } else{
         [deskView exposeLetter:index uponCompletionDo:nil];  
         paletteView.hidden = NO;
-        [UIView animateWithDuration:0.5 animations:^(void){paletteView.alpha = 1;}];
+        [UIView animateWithDuration:1 animations:^(void){paletteView.alpha = 1;}];
     }
 }
 

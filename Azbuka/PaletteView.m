@@ -36,7 +36,7 @@ static const float GAP = 5.0;
     
     eraser = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     [eraser setImage:[UIImage imageNamed:@"eraser.png"] forState:UIControlStateNormal];
-    [eraser addTarget:self action:@selector(onEraser) forControlEvents:UIControlEventTouchUpInside];
+    [eraser addTarget:self action:@selector(onErase) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:eraser];
 }
 
