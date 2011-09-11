@@ -44,6 +44,13 @@
 		E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */; };
 		E637D839141BF8B200FE4A97 /* PaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D838141BF8B200FE4A97 /* PaletteView.m */; };
 		E637D873141C33CC00FE4A97 /* AzbukaView.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D872141C33CC00FE4A97 /* AzbukaView.m */; };
+		E637D880141CDFF200FE4A97 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D87D141CDFF100FE4A97 /* PaintingView.m */; };
+		E637D881141CDFF200FE4A97 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D87F141CDFF100FE4A97 /* SoundEffect.m */; };
+		E637D883141CE01D00FE4A97 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E637D882141CE01C00FE4A97 /* OpenGLES.framework */; };
+		E637D891141CE09D00FE4A97 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E637D890141CE09D00FE4A97 /* AudioToolbox.framework */; };
+		E637D89C141CEA7C00FE4A97 /* Select.caf in Resources */ = {isa = PBXBuildFile; fileRef = E637D89A141CEA7C00FE4A97 /* Select.caf */; };
+		E637D89D141CEA7C00FE4A97 /* Erase.caf in Resources */ = {isa = PBXBuildFile; fileRef = E637D89B141CEA7C00FE4A97 /* Erase.caf */; };
+		E637D89F141CEA8800FE4A97 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = E637D89E141CEA8800FE4A97 /* Particle.png */; };
 		E685803C1417850600CC7216 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = E685803B1417850600CC7216 /* eraser.png */; };
 		E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA2140C29810005BF02 /* UIKit.framework */; };
 		E6D07EA5140C29810005BF02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA4140C29810005BF02 /* Foundation.framework */; };
@@ -103,6 +110,17 @@
 		E637D838141BF8B200FE4A97 /* PaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteView.m; sourceTree = "<group>"; };
 		E637D871141C33CC00FE4A97 /* AzbukaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaView.h; sourceTree = "<group>"; };
 		E637D872141C33CC00FE4A97 /* AzbukaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaView.m; sourceTree = "<group>"; };
+		E637D87C141CDFF100FE4A97 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
+		E637D87D141CDFF100FE4A97 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
+		E637D87E141CDFF100FE4A97 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
+		E637D87F141CDFF100FE4A97 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+		E637D882141CE01C00FE4A97 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E637D884141CE03400FE4A97 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		E637D886141CE04100FE4A97 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		E637D890141CE09D00FE4A97 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E637D89A141CEA7C00FE4A97 /* Select.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Select.caf; sourceTree = "<group>"; };
+		E637D89B141CEA7C00FE4A97 /* Erase.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Erase.caf; sourceTree = "<group>"; };
+		E637D89E141CEA8800FE4A97 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		E685803B1417850600CC7216 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
 		E6D07E9E140C29810005BF02 /* Azbuka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Azbuka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D07EA2140C29810005BF02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -133,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E637D891141CE09D00FE4A97 /* AudioToolbox.framework in Frameworks */,
+				E637D883141CE01D00FE4A97 /* OpenGLES.framework in Frameworks */,
 				E60845EC140C49A400FBD59E /* QuartzCore.framework in Frameworks */,
 				E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */,
 				E6D07EA5140C29810005BF02 /* Foundation.framework in Frameworks */,
@@ -146,6 +166,9 @@
 		E60844BA140C2F9500FBD59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E637D89E141CEA8800FE4A97 /* Particle.png */,
+				E637D89A141CEA7C00FE4A97 /* Select.caf */,
+				E637D89B141CEA7C00FE4A97 /* Erase.caf */,
 				E60844FE140C30EC00FBD59E /* letters */,
 				E685803B1417850600CC7216 /* eraser.png */,
 				E6EB8B9914162B5A009FD6D9 /* Default.png */,
@@ -208,7 +231,6 @@
 		E6D07E93140C29810005BF02 = {
 			isa = PBXGroup;
 			children = (
-				E60845EB140C49A400FBD59E /* QuartzCore.framework */,
 				E6D07EA8140C29810005BF02 /* Azbuka */,
 				E60845F5140C4C7F00FBD59E /* Other sources */,
 				E60844BA140C2F9500FBD59E /* Resources */,
@@ -228,6 +250,11 @@
 		E6D07EA1140C29810005BF02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E637D890141CE09D00FE4A97 /* AudioToolbox.framework */,
+				E637D886141CE04100FE4A97 /* AudioUnit.framework */,
+				E637D884141CE03400FE4A97 /* CoreAudio.framework */,
+				E637D882141CE01C00FE4A97 /* OpenGLES.framework */,
+				E60845EB140C49A400FBD59E /* QuartzCore.framework */,
 				E6D07EA2140C29810005BF02 /* UIKit.framework */,
 				E6D07EA4140C29810005BF02 /* Foundation.framework */,
 				E6D07EA6140C29810005BF02 /* CoreGraphics.framework */,
@@ -238,6 +265,10 @@
 		E6D07EA8140C29810005BF02 /* Azbuka */ = {
 			isa = PBXGroup;
 			children = (
+				E637D87C141CDFF100FE4A97 /* PaintingView.h */,
+				E637D87D141CDFF100FE4A97 /* PaintingView.m */,
+				E637D87E141CDFF100FE4A97 /* SoundEffect.h */,
+				E637D87F141CDFF100FE4A97 /* SoundEffect.m */,
 				E6D07EA9140C29810005BF02 /* Supporting Files */,
 				E6D07EB1140C29810005BF02 /* AzbukaAppDelegate.h */,
 				E6D07EB2140C29810005BF02 /* AzbukaAppDelegate.m */,
@@ -356,6 +387,9 @@
 				E6EB8B9C14162B5A009FD6D9 /* Default.png in Resources */,
 				E6EB8B9E14162B5A009FD6D9 /* icon.png in Resources */,
 				E685803C1417850600CC7216 /* eraser.png in Resources */,
+				E637D89C141CEA7C00FE4A97 /* Select.caf in Resources */,
+				E637D89D141CEA7C00FE4A97 /* Erase.caf in Resources */,
+				E637D89F141CEA8800FE4A97 /* Particle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +408,8 @@
 				E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */,
 				E637D839141BF8B200FE4A97 /* PaletteView.m in Sources */,
 				E637D873141C33CC00FE4A97 /* AzbukaView.m in Sources */,
+				E637D880141CDFF200FE4A97 /* PaintingView.m in Sources */,
+				E637D881141CDFF200FE4A97 /* SoundEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
