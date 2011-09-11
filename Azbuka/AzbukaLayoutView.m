@@ -42,6 +42,7 @@ static const float animationDuration = 0.5;
     [prevButton addTarget:self action:@selector(onPrevButton) forControlEvents:UIControlEventTouchUpInside];
     prevButton.alpha = 0; prevButton.hidden = YES;
     [self addSubview:prevButton];    
+    
     nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     im = [UIImage imageNamed:@"next_button.png"];
     [nextButton setImage:im forState:UIControlStateNormal];

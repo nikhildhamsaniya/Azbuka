@@ -161,3 +161,39 @@ CGAffineTransform CGAffineTransformAroundPoint(CGAffineTransform orig, CGPoint p
     t = CGAffineTransformTranslate(t, -pt.x, -pt.y);
     return t;    
 }
+
+CGFloat GetConstraintValue(CGRect rect,  CGRectDimension dimension, CGRectConstraint constraint){
+    switch(constraint){
+        case CGRectMinConstraint: 
+            return dimension == CGRectHorizontalDimension ? CGRectGetMinX(rect) : CGRectGetMinY(rect);
+        case CGRectMaxConstraint: 
+            return dimension == CGRectHorizontalDimension ? CGRectGetMaxX(rect) : CGRectGetMaxY(rect);
+        case CGRectMidConstraint: 
+            return dimension == CGRectHorizontalDimension ? CGRectGetMidX(rect) : CGRectGetMidY(rect);
+    }
+}
+
+CGRect CGRectConstraintToRect(CGRect original, 
+                              CGRectDimension dimension, 
+                              CGRectConstraint originalConstraint, 
+                              CGFloat shift,
+                              CGRect to, 
+                              CGRectConstraint toConstraint){
+    CGFloat newValue = GetConstraintValue(to, dimension, toConstraint) + shift;
+    switch(originalConstraint){
+        case CGRectMinConstraint: 
+            if(dimension == CGRectHorizontalDimension) original.origin.x = newValue;
+            else original.origin.y = newValue;
+            break;
+        case CGRectMaxConstraint: 
+            if(dimension == CGRectHorizontalDimension) original.origin.x = newValue - original.size.width;
+            else original.origin.y = newValue - original.size.height;
+            break;
+        case CGRectMidConstraint: 
+            if(dimension == CGRectHorizontalDimension) original.origin.x = newValue - original.size.width/2;
+            else original.origin.y = newValue - original.size.height/2;
+            break;
+    }
+    
+    return original;
+}

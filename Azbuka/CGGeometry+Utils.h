@@ -32,3 +32,21 @@ float CGSizeLength(CGSize vector);
 CGAffineTransform CGAffineTransformMakeScaleAroundPoint(float sx, float sy, CGPoint pt);
 CGAffineTransform CGAffineTransformMakeRotationAroundPoint(float radians, CGPoint pt);
 CGAffineTransform CGAffineTransformAroundPoint(CGAffineTransform orig, CGPoint pt);
+
+typedef enum{
+    CGRectMinConstraint,
+    CGRectMaxConstraint,
+    CGRectMidConstraint
+} CGRectConstraint;
+
+typedef enum{
+    CGRectHorizontalDimension,
+    CGRectVerticalDimension
+}CGRectDimension;
+
+CGRect CGRectConstraintToRect(CGRect original, 
+                              CGRectDimension dimension, 
+                              CGRectConstraint originalConstraint, 
+                              CGFloat shift,
+                              CGRect to, 
+                              CGRectConstraint toConstraint);
