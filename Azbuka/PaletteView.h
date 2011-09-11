@@ -2,7 +2,8 @@
 
 
 @interface PaletteView : UIView {
-    UIButton *red, *blue, *yellow, *green, *eraser;   
+    UIView *red, *blue, *yellow, *green;
+    UIButton *eraser;   
 }
 
 -(IBAction)onRed;

@@ -1,33 +1,39 @@
 #import "PaletteView.h"
 #import "CGGeometry+Utils.h"
-
+#import <QuartzCore/QuartzCore.h>
 static const float GAP = 5.0;
 
 @implementation PaletteView
 
 #pragma mark private
 
+-(UIView*)newColorButtonForColor:(UIColor*)color handler:(SEL)handler{
+    UIView *button = [UIView new];
+    button.backgroundColor = color;
+    button.layer.cornerRadius = 10;
+    UITapGestureRecognizer *gr = [[[UITapGestureRecognizer alloc] initWithTarget:self action:handler] autorelease];
+    [button addGestureRecognizer:gr];
+    return button; 
+}
+
 -(void)privateInit{
-    red = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [red setImage:[UIImage imageNamed:@"red.png"] forState:UIControlStateNormal];
-    [red addTarget:self action:@selector(onRed) forControlEvents:UIControlEventTouchUpInside];
+    self.layer.cornerRadius = 10;
+    
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOpacity = 1.0;
+    self.layer.shadowOffset = CGSizeMake(3, 3);
+    self.layer.shadowRadius = 3;   
+    self.layer.shouldRasterize = YES;
+    
+    red = [self newColorButtonForColor:[UIColor redColor] handler:@selector(onRed)];
     [self addSubview:red];
-
-    blue = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [blue setImage:[UIImage imageNamed:@"blue.png"] forState:UIControlStateNormal];
-    [blue addTarget:self action:@selector(onBlue) forControlEvents:UIControlEventTouchUpInside];
+    blue = [self newColorButtonForColor:[UIColor blueColor] handler:@selector(onBlue)];
     [self addSubview:blue];
-
-    yellow = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [yellow setImage:[UIImage imageNamed:@"yellow.png"] forState:UIControlStateNormal];
-    [yellow addTarget:self action:@selector(onYellow) forControlEvents:UIControlEventTouchUpInside];
+    yellow = [self newColorButtonForColor:[UIColor yellowColor] handler:@selector(onYellow)];
     [self addSubview:yellow];
-
-    green = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-    [green setImage:[UIImage imageNamed:@"green.png"] forState:UIControlStateNormal];
-    [green addTarget:self action:@selector(onGreen) forControlEvents:UIControlEventTouchUpInside];
+    green = [self newColorButtonForColor:[UIColor greenColor] handler:@selector(onGreen)];
     [self addSubview:green];
-
+    
     eraser = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
     [eraser setImage:[UIImage imageNamed:@"eraser.png"] forState:UIControlStateNormal];
     [eraser addTarget:self action:@selector(onEraser) forControlEvents:UIControlEventTouchUpInside];
@@ -55,20 +61,9 @@ static const float GAP = 5.0;
 }
 
 -(void)layoutPortrait{
-    eraser.frame = (CGRect){CGPointZero, eraser.imageView.image.size};
-    eraser.frame = CGRectConstraintToRect(eraser.frame, CGRectVerticalDimension, CGRectMaxConstraint, -GAP, 
-                                          self.bounds, CGRectMaxConstraint);
-    eraser.frame = CGRectConstraintToRect(eraser.frame, CGRectHorizontalDimension, CGRectMidConstraint, 0, 
-                                          self.bounds, CGRectMidConstraint);
-    
-    
-    CGRect colorsRect = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetMinY(eraser.frame));
-    colorsRect = CGRectInset(colorsRect, GAP, GAP); 
-    [self layoutColorsInRect:colorsRect];
-}
-
--(void)layoutLandscape{
-    eraser.frame = (CGRect){CGPointZero, eraser.imageView.image.size};
+    CGRect eraserFrame = (CGRect){CGPointZero, CGSizeFitIntoSize([UIImage imageNamed:@"eraser.png"].size, self.bounds.size)};
+    eraserFrame = CGRectInset(eraserFrame, GAP, GAP);
+    eraser.frame = eraserFrame;
     eraser.frame = CGRectConstraintToRect(eraser.frame, CGRectHorizontalDimension, CGRectMaxConstraint, -GAP, 
                                           self.bounds, CGRectMaxConstraint);
     eraser.frame = CGRectConstraintToRect(eraser.frame, CGRectVerticalDimension, CGRectMidConstraint, 0, 
@@ -77,6 +72,21 @@ static const float GAP = 5.0;
     
     CGRect colorsRect = CGRectMake(0, 0, CGRectGetMinX(eraser.frame), CGRectGetHeight(self.bounds));
     colorsRect = CGRectInset(colorsRect, GAP, GAP);
+    [self layoutColorsInRect:colorsRect];
+}
+
+-(void)layoutLandscape{
+    CGRect eraserFrame = (CGRect){CGPointZero, CGSizeFitIntoSize([UIImage imageNamed:@"eraser.png"].size, self.bounds.size)};
+    eraserFrame = CGRectInset(eraserFrame, GAP, GAP);
+    eraser.frame = eraserFrame;
+    eraser.frame = CGRectConstraintToRect(eraser.frame, CGRectVerticalDimension, CGRectMaxConstraint, -GAP, 
+                                          self.bounds, CGRectMaxConstraint);
+    eraser.frame = CGRectConstraintToRect(eraser.frame, CGRectHorizontalDimension, CGRectMidConstraint, 0, 
+                                          self.bounds, CGRectMidConstraint);
+    
+    
+    CGRect colorsRect = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetMinY(eraser.frame));
+    colorsRect = CGRectInset(colorsRect, GAP, GAP); 
     [self layoutColorsInRect:colorsRect];
 }
 

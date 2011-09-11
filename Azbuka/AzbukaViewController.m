@@ -1,5 +1,6 @@
 #import "AzbukaViewController.h"
 #import "CGGeometry+Utils.h"
+#import "PaletteView.h"
 
 @implementation AzbukaViewController
 
@@ -10,14 +11,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    azbukaView.delegate = self;
+    deskView.delegate = self;
+    
+    paletteView.hidden = YES;
+    paletteView.alpha = 0;
 }
 
 
 - (void)dealloc
 {
-    azbukaView.delegate = nil;
-    [azbukaView release];    
+    [paletteView release];
+    deskView.delegate = nil;
+    [deskView release];    
     [super dealloc];
 }
 
@@ -34,10 +39,15 @@
 #pragma mark AzbukaLayoutViewProto
 
 -(void)tappedLetter:(int)index view:(UIView*)view{
-    if(azbukaView.hasExposedLetter) {
-        if(view != azbukaView.exposedLetter) [azbukaView unexpose];
+    if(deskView.hasExposedLetter) {
+        if(view != deskView.exposedLetter) {
+            [deskView unexpose];
+            [UIView animateWithDuration:0.5 animations:^(void){paletteView.alpha = 0;} completion:^(BOOL ignore){paletteView.hidden = YES;}];
+        }
     } else{
-        [azbukaView exposeLetter:index uponCompletionDo:nil];  
+        [deskView exposeLetter:index uponCompletionDo:nil];  
+        paletteView.hidden = NO;
+        [UIView animateWithDuration:0.5 animations:^(void){paletteView.alpha = 1;}];
     }
 }
 

@@ -4,7 +4,7 @@
 @class PaletteView;
 
 @interface AzbukaViewController : UIViewController<AzbukaDeskViewProto> {
-    IBOutlet AzbukaDeskView *azbukaView;
+    IBOutlet AzbukaDeskView *deskView;
     IBOutlet PaletteView *paletteView;
 }
 
