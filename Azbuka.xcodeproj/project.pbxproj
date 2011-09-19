@@ -52,6 +52,7 @@
 		E637D89D141CEA7C00FE4A97 /* Erase.caf in Resources */ = {isa = PBXBuildFile; fileRef = E637D89B141CEA7C00FE4A97 /* Erase.caf */; };
 		E637D89F141CEA8800FE4A97 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = E637D89E141CEA8800FE4A97 /* Particle.png */; };
 		E685803C1417850600CC7216 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = E685803B1417850600CC7216 /* eraser.png */; };
+		E69626AC1427E9E300CCA12F /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = E69626AB1427E9E300CCA12F /* Painting.m */; };
 		E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA2140C29810005BF02 /* UIKit.framework */; };
 		E6D07EA5140C29810005BF02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA4140C29810005BF02 /* Foundation.framework */; };
 		E6D07EA7140C29810005BF02 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA6140C29810005BF02 /* CoreGraphics.framework */; };
@@ -122,6 +123,8 @@
 		E637D89B141CEA7C00FE4A97 /* Erase.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Erase.caf; sourceTree = "<group>"; };
 		E637D89E141CEA8800FE4A97 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		E685803B1417850600CC7216 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
+		E69626AA1427E9E300CCA12F /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
+		E69626AB1427E9E300CCA12F /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		E6D07E9E140C29810005BF02 /* Azbuka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Azbuka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D07EA2140C29810005BF02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E6D07EA4140C29810005BF02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -284,6 +287,8 @@
 				E637D87D141CDFF100FE4A97 /* PaintingView.m */,
 				E637D87E141CDFF100FE4A97 /* SoundEffect.h */,
 				E637D87F141CDFF100FE4A97 /* SoundEffect.m */,
+				E69626AA1427E9E300CCA12F /* Painting.h */,
+				E69626AB1427E9E300CCA12F /* Painting.m */,
 			);
 			path = Azbuka;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				E637D873141C33CC00FE4A97 /* AzbukaView.m in Sources */,
 				E637D880141CDFF200FE4A97 /* PaintingView.m in Sources */,
 				E637D881141CDFF200FE4A97 /* SoundEffect.m in Sources */,
+				E69626AC1427E9E300CCA12F /* Painting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,12 +479,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ilya Romanov (YBAFES6DBB)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Azbuka/Azbuka-Prefix.pch";
 				INFOPLIST_FILE = "Azbuka/Azbuka-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C4066952-83B7-45A2-AA44-1206A52C553B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -487,11 +495,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ilya Romanov (YBAFES6DBB)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Azbuka/Azbuka-Prefix.pch";
 				INFOPLIST_FILE = "Azbuka/Azbuka-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C4066952-83B7-45A2-AA44-1206A52C553B";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
