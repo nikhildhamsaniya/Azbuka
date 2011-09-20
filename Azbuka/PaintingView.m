@@ -4,20 +4,16 @@
 
 @interface PaintingView()
 @property(nonatomic, retain) UIImage *currentDrawing;
-@property(nonatomic, retain) UIColor *curColor;
 @end
 
 @implementation PaintingView
 @synthesize currentDrawing;
-@synthesize curColor;
-@synthesize data;
+@synthesize painting;
 #pragma mark private
 
 -(BOOL)privateInit{
     self.backgroundColor = [UIColor clearColor];
-    brush = [[UIImage imageNamed:@"Particle.png"] retain];
-    self.contentScaleFactor = 1.0;
-    
+    self.contentScaleFactor = 1.0;    
     return YES;
 }
 
@@ -33,84 +29,38 @@
 	int count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
 	for(int i = 0; i < count; ++i) {
         CGPoint pt = CGPointMake(
-                                 start.x + (end.x - start.x) * ((GLfloat)i / (GLfloat)count),
-                                 start.y + (end.y - start.y) * ((GLfloat)i / (GLfloat)count)
+                                 start.x + (end.x - start.x) * ((CGFloat)i / (CGFloat)count),
+                                 start.y + (end.y - start.y) * ((CGFloat)i / (CGFloat)count)
                                  );
         [self drawPointAt:pt on:ctx];
 	}
-    
 }
 
--(void)updateDrawingWithPoints:(NSArray*)pts{
-    if(pts.count == 0)return;
-    
+-(void)updateAndRedisplayFull:(BOOL)isFull{
     UIGraphicsBeginImageContext(self.bounds.size);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(ctx, curColor.CGColor);
-
     if(currentDrawing)[currentDrawing drawInRect:(CGRect){CGPointZero, currentDrawing.size}];
     
-    if (pts.count == 1) {
-        [self drawPointAt: ((NSValue*)[pts objectAtIndex:0]).CGPointValue on:ctx];
-    }else{
-        NSValue *lastPointValue = nil;
-        for (NSValue* pointValue in pts) {
-            if(lastPointValue){
-                CGPoint last = lastPointValue.CGPointValue;
-                CGPoint cur = pointValue.CGPointValue;
-                [self drawLineFromPoint:last to:cur on:ctx];
-            }
-            lastPointValue = pointValue;        
-        }        
-    }
+    painting.userInfo = ctx;
+    if(isFull)[painting drawOn:self];
+    else [painting flushOn:self];
     
-    
-    CGContextFillPath(ctx);
     CGContextFlush(ctx);
     self.currentDrawing = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    [self setNeedsDisplay];
 }
-
--(void)updateDrawingWithPoint:(CGPoint)pt{
-    [self updateDrawingWithPoints:[NSArray arrayWithObject:[NSValue valueWithCGPoint:pt]]];
-}
-
-
-// Drawings a line onscreen based on where the user touches
-//- (void) renderLineFromPoint:(CGPoint)start toPoint:(CGPoint)end in:(CGContextRef)ctx
-//{	
-//	// Convert locations from Points to Pixels
-//	CGFloat scale = self.contentScaleFactor;
-//	start.x *= scale;
-//	start.y *= scale;
-//	end.x *= scale;
-//	end.y *= scale;
-//	
-//	
-//	// Add points to the buffer so there are drawing points every X pixels
-//	int count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
-//	for(int i = 0; i < count; ++i) {
-//		CGFloat x = start.x + (end.x - start.x) * ((GLfloat)i / (GLfloat)count);
-//		CGFloat y = start.y + (end.y - start.y) * ((GLfloat)i / (GLfloat)count);
-//        CGRect imageRect = (CGRect){CGPointZero, CGSizeScale(brush.size, kBrushScale)};
-//        imageRect = CGRectCenterToPoint(imageRect, CGPointMake(x, y));
-//        CGContextDrawImage(ctx, imageRect, brush.CGImage);
-//	}
-//	
-//}
 
 #pragma mark properties
 
--(void)setData:(NSMutableArray *)_data{
-    [data release];
-    data = [_data mutableCopy];
+-(void)setPainting:(Painting*)_painting{
+    [_painting retain];
+    [painting release];
+    painting = _painting;
     
     self.currentDrawing = nil;
-    for (NSArray *curLine in data) {
-        [self updateDrawingWithPoints:curLine];
-    }
-    
-    [self setNeedsDisplay];
+    [self updateAndRedisplayFull:YES];
 }
 
 #pragma mark lifecycle
@@ -142,10 +92,9 @@
 
 - (void) dealloc
 {
-    [curColor release];
+    [lastBrush release];
     [currentDrawing release];
-    [data release];
-    [brush release];
+    [painting release];
 	[super dealloc];
 }
 
@@ -153,7 +102,9 @@
 
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
 {
-    self.curColor = [UIColor colorWithRed:red green:green blue:blue alpha:kBrushOpacity];
+    [lastBrush release];
+    lastBrush = [[Brush alloc] initWithRed:red green:green blue:blue];
+    [painting setBrush:lastBrush];
 }
 
 #pragma mark UIView
@@ -161,61 +112,67 @@
 -(void)drawRect:(CGRect)rect{
     CGRect imageRect = (CGRect){CGPointZero, currentDrawing.size};
     CGContextDrawImage(UIGraphicsGetCurrentContext(), imageRect, currentDrawing.CGImage);
-    
-//    CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    for (NSArray* curLine in data) {
-//        for (NSValue* pointValue in curLine) {
-//            CGPoint cur = [pointValue CGPointValue];
-//            CGRect imageRect = (CGRect){CGPointZero, CGSizeScale(brush.size, kBrushScale)};
-//            imageRect = CGRectCenterToPoint(imageRect, cur);
-//            CGContextDrawImage(ctx, imageRect, brush.CGImage);
-//        }
-//    }
 }
 
 // Handles the start of a touch
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch*	touch = [[event touchesForView:self] anyObject];
-	CGPoint location = [touch locationInView:self];
+	CGPoint point = [touch locationInView:self];
     
-    if(!data) data = [NSMutableArray new];
-    [data insertObject:[NSMutableArray array] atIndex:0];
-    [[data objectAtIndex:0] addObject:[NSValue valueWithCGPoint:location]];
-    [self updateDrawingWithPoint:location];
-    [self setNeedsDisplay];
+    if(!painting){
+        painting = [Painting new];
+        [painting setBrush:lastBrush];
+    }
+    [painting addPoint:point];
+    [self updateAndRedisplayFull:NO];
 }
 
 // Handles the continuation of a touch.
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {      
 	UITouch*			touch = [[event touchesForView:self] anyObject];
-	CGPoint cur = [touch locationInView:self];
-    CGPoint last = [((NSValue*)[[data objectAtIndex:0] lastObject]) CGPointValue];
-    
-    [[data objectAtIndex:0] addObject:[NSValue valueWithCGPoint:cur]];
-    [self updateDrawingWithPoints:[NSArray arrayWithObjects:[NSValue valueWithCGPoint:last], [NSValue valueWithCGPoint:cur], nil]];
-    [self setNeedsDisplay];
+	CGPoint point = [touch locationInView:self];
+    [painting addPoint:point];
+    [self updateAndRedisplayFull:NO];
 }
 
 // Handles the end of a touch event when the touch is a tap.
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	UITouch*			touch = [[event touchesForView:self] anyObject];
-	CGPoint cur = [touch locationInView:self];
-    CGPoint last = [((NSValue*)[[data objectAtIndex:0] lastObject]) CGPointValue];
-    
-    [[data objectAtIndex:0] addObject:[NSValue valueWithCGPoint:cur]];
-    [self updateDrawingWithPoints:[NSArray arrayWithObjects:[NSValue valueWithCGPoint:last], [NSValue valueWithCGPoint:cur], nil]];
-    [self setNeedsDisplay];
+	CGPoint point = [touch locationInView:self];
+    [painting addPoint:point];
+    [painting endLine];
+    [self updateAndRedisplayFull:NO];
 }
 
-// Handles the end of a touch event.
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	// If appropriate, add code necessary to save the state of the application.
-	// This application is not saving state.
+    [painting endLine];
+    [self updateAndRedisplayFull:NO];
 }
 
+#pragma mark PaintingDrawer
+-(void)paintingWantsToBeginDrawing:(Painting *)_painting{
+    CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    CGContextSetFillColorWithColor(ctx, painting.lastBrush.CGColor);
+}
+
+-(void)paintingWantsToEndDrawing:(Painting *)_painting{
+    CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    CGContextFillPath(ctx);    
+}
+
+
+-(void)painting:(Painting*)_painting wantsToDrawPoint:(CGPoint)pt{
+    CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    [self drawPointAt:pt on:ctx];
+}
+
+-(void)painting:(Painting*)_painting wantsToDrawLineFrom:(CGPoint)start to:(CGPoint)end{
+    CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    [self drawLineFromPoint:start to:end on:ctx];
+}
 
 @end

@@ -116,6 +116,7 @@ static CGFloat brushAlpha = 0.5f;
 
 @implementation Painting
 @synthesize lastBrush;
+@synthesize userInfo;
 
 #pragma mark private
 
@@ -124,8 +125,12 @@ static CGFloat brushAlpha = 0.5f;
 }
 
 -(void)drawFrom:(int)index on:(id<PaintingDrawer>)drawer{
-    BOOL wasDrawn = NO;
+    BOOL wasBegun = NO;
+    BOOL wasEnded = NO;
+    BOOL pointsAdded = NO;
+    
     for(int i = index; i < commands.count; i++){
+        wasEnded = NO;
         PaintingCommand *command = [commands objectAtIndex:i];
         if([command isKindOfClass:[BrushCommand class]]){
             BrushCommand* brushCommand = (BrushCommand*)command;
@@ -133,27 +138,46 @@ static CGFloat brushAlpha = 0.5f;
         }else if([command isKindOfClass:[PointCommand class]]){
             PointCommand *pointCommand = (PointCommand*)command;
             if(lastPointSet){
+                if(!wasBegun){
+                    if([drawer respondsToSelector:@selector(paintingWantsToBeginDrawing:)]) [drawer paintingWantsToBeginDrawing:self];
+                    wasBegun = YES;
+                }
                 [drawer painting:self wantsToDrawLineFrom:lastPoint to:pointCommand.pt];
-                wasDrawn = YES;
-            }
+            }            
             lastPoint = pointCommand.pt;
             lastPointSet = YES;
+            pointsAdded = YES;
         }else if([command isKindOfClass:[EndLineCommand class]]){
-            if(lastPointSet && !wasDrawn){
+            if(pointsAdded && !wasBegun){
+                if([drawer respondsToSelector:@selector(paintingWantsToBeginDrawing:)]) [drawer paintingWantsToBeginDrawing:self];
+                wasBegun = YES;
                 [drawer painting:self wantsToDrawPoint:lastPoint];
-                wasDrawn = YES;
             }
+            if([drawer respondsToSelector:@selector(paintingWantsToEndLine:)]) [drawer paintingWantsToEndDrawing:self];
             lastPoint = CGPointZero;
-            lastPointSet = NO;            
+            lastPointSet = NO;
+            wasEnded = YES;
         }
     }
-    if(lastPointSet && !wasDrawn){
+    if(pointsAdded && !wasBegun){
+        if([drawer respondsToSelector:@selector(paintingWantsToBeginDrawing:)]) [drawer paintingWantsToBeginDrawing:self];
+        wasBegun = YES;
         [drawer painting:self wantsToDrawPoint:lastPoint];
     }
-
+    if(wasBegun && !wasEnded){
+        [drawer paintingWantsToEndDrawing:self];
+    }
 }
 
 #pragma mark lifecycle
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        commands = [NSMutableArray new];
+    }
+    return self;
+}
 
 - (void)dealloc {
     [lastBrush release];

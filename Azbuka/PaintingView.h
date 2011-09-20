@@ -1,7 +1,5 @@
 #import <UIKit/UIKit.h>
-#import <OpenGLES/EAGL.h>
-#import <OpenGLES/ES1/gl.h>
-#import <OpenGLES/ES1/glext.h>
+#import "Painting.h"
 
 //CONSTANTS:
 
@@ -13,16 +11,16 @@
 
 //CLASS INTERFACES:
 
-@interface PaintingView : UIView
+@class Painting;
+
+@interface PaintingView : UIView<PaintingDrawer>
 {
-@private    
-    UIImage *brush;
-    NSMutableArray *data;
+@private  
+    Painting *painting;
+    Brush *lastBrush;
     UIImage *currentDrawing;
-    
-    UIColor *curColor;
 }
-@property(nonatomic, copy) NSMutableArray *data;
+@property(nonatomic, retain) Painting *painting;
 
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 

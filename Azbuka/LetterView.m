@@ -98,7 +98,7 @@
 }
 
 - (void)erasePainting{
-    painting.data = nil;
+    painting.painting = nil;
 }
 
 - (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
