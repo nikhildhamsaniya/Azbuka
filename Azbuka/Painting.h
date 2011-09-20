@@ -24,6 +24,7 @@
 @end
 
 @interface Eraser : PaintingTool
++(Eraser*)eraser;
 @end
 
 @interface Brush : PaintingTool {

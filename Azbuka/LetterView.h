@@ -7,6 +7,7 @@
     UIImage *thumbnailImage;
     
     PaintingView *painting;
+    UIImage *renderedPainting;
 }
 @property(nonatomic, assign) CGSize thumbnailSize;
 -(id)initWithLetterIndex:(int)index;

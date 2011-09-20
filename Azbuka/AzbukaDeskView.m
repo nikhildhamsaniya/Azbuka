@@ -147,11 +147,11 @@ static const float animationDuration = 0.5;
                      animations:^(void){
                          [self deckLetter:exposedLetter];
                          exposedLetter = newExposed;
-                         [self layoutExposedLetter];
-                         [exposedLetter didFullsized];
-                         
+                         [self layoutExposedLetter];                         
                      } completion:^(BOOL ignore){
+                         [exposedLetter didFullsized];
                          [delegate didExposeLetter:index view:exposedLetter];
+                         
                      }];    
 
 }

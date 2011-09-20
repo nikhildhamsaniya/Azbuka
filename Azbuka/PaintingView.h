@@ -13,12 +13,10 @@
 
 @interface PaintingView : UIView<PaintingDrawer>
 {
-@private  
     Painting *painting;
-    PaintingTool *lastTool;
-    UIImage *currentDrawing;
+    UIImage *renderedPainting;
 }
-@property(nonatomic, retain) Painting *painting;
+@property(nonatomic, retain) UIImage *renderedPainting;
 
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 - (void)setEraser;

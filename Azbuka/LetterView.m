@@ -3,8 +3,13 @@
 #import "CGGeometry+Utils.h"
 #import "PaintingView.h"
 
+@interface LetterView()
+@property(nonatomic, retain) UIImage *renderedPainting;
+@end
+
 @implementation LetterView
 @synthesize thumbnailSize = _thumbnailSize;
+@synthesize  renderedPainting;
 
 #pragma mark private
 
@@ -33,9 +38,11 @@
     painting = [[PaintingView alloc] initWithFrame:self.bounds];
     [painting setBrushColorWithRed:0 green:0 blue:1];
     [self addSubview:painting];
+    painting.renderedPainting = self.renderedPainting;
 }
 
 -(void)pickupPainting{
+    self.renderedPainting = painting.renderedPainting;
     [painting removeFromSuperview];
     [painting release];
     painting = nil;
@@ -69,6 +76,7 @@
 }
 
 - (void)dealloc {
+    [renderedPainting release];
     [painting release];
     [thumbnailImage release];
     [super dealloc];

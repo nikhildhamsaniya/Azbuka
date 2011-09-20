@@ -1,18 +1,14 @@
 #import "PaintingView.h"
 #import "CGGeometry+Utils.h"
 
-@interface PaintingView()
-@property(nonatomic, retain) UIImage *currentDrawing;
-@end
-
 @implementation PaintingView
-@synthesize currentDrawing;
-@synthesize painting;
+@synthesize renderedPainting;
 #pragma mark private
 
 -(void)privateInit{
     self.backgroundColor = [UIColor clearColor];
-    self.contentScaleFactor = 1.0;    
+    self.contentScaleFactor = 1.0; 
+    painting = [Painting new];
     [Brush setAlpha:kBrushOpacity];
 }
 
@@ -46,14 +42,15 @@
 -(void)updateAndRedisplayFull:(BOOL)isFull{
     UIGraphicsBeginImageContext(self.bounds.size);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    if(currentDrawing)[currentDrawing drawInRect:(CGRect){CGPointZero, currentDrawing.size}];
+    if(renderedPainting)[renderedPainting drawInRect:(CGRect){CGPointZero, renderedPainting.size}];
     
     painting.userInfo = ctx;
     if(isFull)[painting drawOn:self];
     else [painting flushOn:self];
     
     CGContextFlush(ctx);
-    self.currentDrawing = UIGraphicsGetImageFromCurrentImageContext();
+    [renderedPainting release];
+    renderedPainting = [UIGraphicsGetImageFromCurrentImageContext() retain];
     UIGraphicsEndImageContext();
     
     [self setNeedsDisplay];
@@ -61,12 +58,13 @@
 
 #pragma mark properties
 
--(void)setPainting:(Painting*)_painting{
-    [_painting retain];
-    [painting release];
-    painting = _painting;
+-(void)setRenderedPainting:(UIImage *)_renderedPainting{
+    [_renderedPainting retain];
+    [renderedPainting release];
+    renderedPainting = _renderedPainting;
     
-    self.currentDrawing = nil;
+    [painting release];
+    painting = [Painting new];
     [self updateAndRedisplayFull:YES];
 }
 
@@ -92,8 +90,7 @@
 
 - (void) dealloc
 {
-    [lastTool release];
-    [currentDrawing release];
+    [renderedPainting release];
     [painting release];
 	[super dealloc];
 }
@@ -102,22 +99,20 @@
 
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
 {
-    [lastTool release];
-    lastTool = [[Brush alloc] initWithRed:red green:green blue:blue];
-    [painting setTool:lastTool];
+    [painting setTool:[Brush brushWithRed:red green:green blue:blue]];
 }
 
 -(void)setEraser{
-    [lastTool release];
-    lastTool = [Eraser new];
-    [painting setTool:lastTool];    
+    [painting setTool:[Eraser eraser]];    
 }
 
 #pragma mark UIView
 
 -(void)drawRect:(CGRect)rect{
-    CGRect imageRect = (CGRect){CGPointZero, currentDrawing.size};
-    CGContextDrawImage(UIGraphicsGetCurrentContext(), imageRect, currentDrawing.CGImage);
+    if(renderedPainting){
+        CGRect imageRect = (CGRect){CGPointZero, renderedPainting.size};
+        CGContextDrawImage(UIGraphicsGetCurrentContext(), imageRect, renderedPainting.CGImage);        
+    }
 }
 
 // Handles the start of a touch
@@ -125,11 +120,7 @@
 {
     UITouch*	touch = [[event touchesForView:self] anyObject];
 	CGPoint point = [touch locationInView:self];
-    
-    if(!painting){
-        painting = [Painting new];
-        [painting setTool:lastTool];
-    }
+
     [painting addPoint:point];
     [self updateAndRedisplayFull:NO];
 }
