@@ -1,6 +1,32 @@
 #import <Foundation/Foundation.h>
 
-@interface Brush : NSObject {
+
+@class Painting;
+@class Brush;
+@class Eraser;
+
+@protocol PaintingDrawer<NSObject>
+-(void)painting:(Painting*)painting wantsToDrawPoint:(CGPoint)pt;
+-(void)painting:(Painting*)painting wantsToDrawLineFrom:(CGPoint)start to:(CGPoint)end;
+-(void)painting:(Painting *)_painting wantsToUseBrush:(Brush*)brush;
+-(void)painting:(Painting *)_painting wantsToUseEraser:(Eraser*)eraser;
+
+@optional
+-(void)painting:(Painting *)_painting wantsToBeginDrawingAtPoint:(CGPoint)pt;
+-(void)paintingWantsToEndDrawing:(Painting *)_painting;
+@end
+
+/////////////////////////////////////////////
+
+@interface PaintingTool : NSObject
+-(void)setInPainting:(Painting*)painting;
+-(void)configureDrawer:(id<PaintingDrawer>)drawer forPainting:(Painting*)painting;
+@end
+
+@interface Eraser : PaintingTool
+@end
+
+@interface Brush : PaintingTool {
     float r, g, b;
 }
 - (id)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
@@ -11,34 +37,28 @@
 @end
 
 /////////////////////////////////////////////
-@class Painting;
-
-@protocol PaintingDrawer<NSObject>
--(void)painting:(Painting*)painting wantsToDrawPoint:(CGPoint)pt;
--(void)painting:(Painting*)painting wantsToDrawLineFrom:(CGPoint)start to:(CGPoint)end;
-@optional
--(void)paintingWantsToBeginDrawing:(Painting *)_painting;
--(void)paintingWantsToEndDrawing:(Painting *)_painting;
-@end
 
 @interface Painting : NSObject {
     NSMutableArray *commands;
     int lastCommandIndex;
-    Brush *lastBrush;
+    PaintingTool *lastTool;
     CGPoint lastPoint;
     BOOL lastPointSet;
     
     void *userInfo;
 }
-@property(nonatomic, retain, readonly)Brush *lastBrush;
+@property(nonatomic, retain, readonly)PaintingTool *lastTool;;
 @property(nonatomic, assign) void* userInfo;
 
-// building
+// constructing
+-(void)setTool:(PaintingTool*)tool;
 -(void)setBrush:(Brush*)brush;
+-(void)setEraser:(Eraser*)eraser;
 -(void)addPoint:(CGPoint)pt;
 -(void)endLine;
 
 // drawing
+-(void)configureToolIn:(id<PaintingDrawer>)drawer;
 -(void)flushOn:(id<PaintingDrawer>)drawer;
 -(void)drawOn:(id<PaintingDrawer>)drawer;
 

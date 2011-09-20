@@ -15,7 +15,7 @@
 -(void)willFullsized;
 -(void)didFullsized;
 
-- (void)erasePainting;
+- (void)setEraser;
 - (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 
 @end

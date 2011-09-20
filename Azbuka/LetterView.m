@@ -97,8 +97,8 @@
     [self showPainting];
 }
 
-- (void)erasePainting{
-    painting.painting = nil;
+- (void)setEraser{
+    [painting setEraser];
 }
 
 - (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{

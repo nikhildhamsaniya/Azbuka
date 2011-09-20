@@ -1,7 +1,7 @@
 #import "Painting.h"
 
 @interface Painting()
-@property(nonatomic, retain, readwrite)Brush *lastBrush;
+@property(nonatomic, retain, readwrite)PaintingTool *lastTool;
 @end
 
 // commands
@@ -15,6 +15,12 @@
 @property(nonatomic, readonly) Brush* brush;
 @end
 
+@interface EraserCommand : PaintingCommand{
+    Eraser *eraser;
+}
+@property(nonatomic, readonly) Eraser *eraser;
+@end
+
 @interface PointCommand : PaintingCommand{
     CGPoint pt;
 }
@@ -23,6 +29,28 @@
 
 @interface EndLineCommand : PaintingCommand{
 }
+@end
+
+// tool  implementation
+@implementation PaintingTool
+-(void)configureDrawer:(id<PaintingDrawer>)drawer forPainting:(Painting*)painting{}
+-(void)setInPainting:(Painting *)painting{}
+@end
+
+// eraser  implementation
+@implementation Eraser
++(Eraser*)eraser{
+    return [[self new] autorelease];
+}
+
+-(void)setInPainting:(Painting*)painting{
+    [painting setEraser:self];
+}
+
+-(void)configureDrawer:(id<PaintingDrawer>)drawer forPainting:(Painting*)painting{
+    [drawer painting:painting wantsToUseEraser:self];
+}
+
 @end
 
 ////////////////////////////////////////////////
@@ -51,6 +79,14 @@ static CGFloat brushAlpha = 0.5f;
 
 -(CGColorRef)CGColor{
     return [UIColor colorWithRed:r green:g blue:b alpha:brushAlpha].CGColor;
+}
+
+-(void)setInPainting:(Painting*)painting{
+    [painting setBrush:self];
+}
+
+-(void)configureDrawer:(id<PaintingDrawer>)drawer forPainting:(Painting*)painting{
+    [drawer painting:painting wantsToUseBrush:self];
 }
 
 @end
@@ -86,6 +122,29 @@ static CGFloat brushAlpha = 0.5f;
 @end
 
 ////////////////////////////////////////////////
+@implementation EraserCommand
+@synthesize eraser;
+
+- (id)initWithEraser:(Eraser*)_eraser {
+    self = [super init];
+    if (self) {
+        eraser = [_eraser retain];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [eraser release];
+    [super dealloc];
+}
+
++(EraserCommand*)eraserCommandWith:(Eraser*)eraser{
+    return [[[self alloc] initWithEraser:eraser] autorelease];  
+}
+
+@end
+
+////////////////////////////////////////////////
 @implementation PointCommand
 @synthesize pt;
 
@@ -115,7 +174,7 @@ static CGFloat brushAlpha = 0.5f;
 ////////////////////////////////////////////////
 
 @implementation Painting
-@synthesize lastBrush;
+@synthesize lastTool;
 @synthesize userInfo;
 
 #pragma mark private
@@ -134,12 +193,16 @@ static CGFloat brushAlpha = 0.5f;
         PaintingCommand *command = [commands objectAtIndex:i];
         if([command isKindOfClass:[BrushCommand class]]){
             BrushCommand* brushCommand = (BrushCommand*)command;
-            self.lastBrush = brushCommand.brush;
+            self.lastTool = brushCommand.brush;
+        }else if([command isKindOfClass:[EraserCommand class]]){
+            EraserCommand* eraserCommand = (EraserCommand*)command;
+            self.lastTool = eraserCommand.eraser;
         }else if([command isKindOfClass:[PointCommand class]]){
             PointCommand *pointCommand = (PointCommand*)command;
             if(lastPointSet){
                 if(!wasBegun){
-                    if([drawer respondsToSelector:@selector(paintingWantsToBeginDrawing:)]) [drawer paintingWantsToBeginDrawing:self];
+                    if([drawer respondsToSelector:@selector(painting:wantsToBeginDrawingAtPoint:)]) [drawer painting:self wantsToBeginDrawingAtPoint:lastPoint];
+                    [lastTool configureDrawer:drawer forPainting:self];
                     wasBegun = YES;
                 }
                 [drawer painting:self wantsToDrawLineFrom:lastPoint to:pointCommand.pt];
@@ -149,7 +212,8 @@ static CGFloat brushAlpha = 0.5f;
             pointsAdded = YES;
         }else if([command isKindOfClass:[EndLineCommand class]]){
             if(pointsAdded && !wasBegun){
-                if([drawer respondsToSelector:@selector(paintingWantsToBeginDrawing:)]) [drawer paintingWantsToBeginDrawing:self];
+                if([drawer respondsToSelector:@selector(painting:wantsToBeginDrawingAtPoint:)]) [drawer painting:self wantsToBeginDrawingAtPoint:lastPoint];
+                [lastTool configureDrawer:drawer forPainting:self];
                 wasBegun = YES;
                 [drawer painting:self wantsToDrawPoint:lastPoint];
             }
@@ -160,7 +224,8 @@ static CGFloat brushAlpha = 0.5f;
         }
     }
     if(pointsAdded && !wasBegun){
-        if([drawer respondsToSelector:@selector(paintingWantsToBeginDrawing:)]) [drawer paintingWantsToBeginDrawing:self];
+        if([drawer respondsToSelector:@selector(painting:wantsToBeginDrawingAtPoint:)]) [drawer painting:self wantsToBeginDrawingAtPoint:lastPoint];
+        [lastTool configureDrawer:drawer forPainting:self];
         wasBegun = YES;
         [drawer painting:self wantsToDrawPoint:lastPoint];
     }
@@ -180,15 +245,23 @@ static CGFloat brushAlpha = 0.5f;
 }
 
 - (void)dealloc {
-    [lastBrush release];
+    [lastTool release];
     [commands release];
     [super dealloc];
 }
 
 #pragma mark accessing
 
+-(void)setTool:(PaintingTool*)tool{
+    [tool setInPainting:self];
+}
+
 -(void)setBrush:(Brush*)brush{
     [self pushCommand:[BrushCommand brushCommandWith:brush]];
+}
+
+-(void)setEraser:(Eraser*)eraser{
+    [self pushCommand:[EraserCommand eraserCommandWith:eraser]];
 }
 
 -(void)addPoint:(CGPoint)pt{
@@ -196,6 +269,10 @@ static CGFloat brushAlpha = 0.5f;
 }
 -(void)endLine{
     [self pushCommand:[EndLineCommand endLine]];
+}
+
+-(void)configureToolIn:(id<PaintingDrawer>)drawer{
+    [lastTool configureDrawer:drawer forPainting:self];
 }
 
 -(void)flushOn:(id<PaintingDrawer>)drawer{

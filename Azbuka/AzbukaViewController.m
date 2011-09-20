@@ -65,8 +65,8 @@
     [deskView.exposedLetter setPaintingBrushColorWithRed:red  green:green blue:blue];
 }
 
--(void)paletteDidErase{
-    [deskView.exposedLetter erasePainting];
+-(void)paletteDidChooseEraser{
+    [deskView.exposedLetter setEraser];
 }
 
 @end

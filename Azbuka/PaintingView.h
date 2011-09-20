@@ -3,11 +3,9 @@
 
 //CONSTANTS:
 
-#define kBrushOpacity		(1.0 / 2.0)
+#define kBrushOpacity		(5.0 / 6.0)
 #define kBrushPixelStep		3
-#define kBrushScale			2
-#define kLuminosity			0.75
-#define kSaturation			1.0
+#define kBrushSize          64
 
 //CLASS INTERFACES:
 
@@ -17,11 +15,12 @@
 {
 @private  
     Painting *painting;
-    Brush *lastBrush;
+    PaintingTool *lastTool;
     UIImage *currentDrawing;
 }
 @property(nonatomic, retain) Painting *painting;
 
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
+- (void)setEraser;
 
 @end

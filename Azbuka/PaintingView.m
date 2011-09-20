@@ -1,7 +1,6 @@
 #import "PaintingView.h"
 #import "CGGeometry+Utils.h"
 
-
 @interface PaintingView()
 @property(nonatomic, retain) UIImage *currentDrawing;
 @end
@@ -11,30 +10,38 @@
 @synthesize painting;
 #pragma mark private
 
--(BOOL)privateInit{
+-(void)privateInit{
     self.backgroundColor = [UIColor clearColor];
     self.contentScaleFactor = 1.0;    
-    return YES;
+    [Brush setAlpha:kBrushOpacity];
 }
 
 
 -(void)drawPointAt:(CGPoint)pt on:(CGContextRef)ctx{
-    pt.y = CGRectGetHeight(self.bounds) - pt.y;
-    CGRect brushRect = (CGRect){CGPointZero, CGSizeMake(64, 64)};
+    CGRect brushRect = (CGRect){CGPointZero, CGSizeMake(kBrushSize, kBrushSize)};
     brushRect = CGRectCenterToPoint(brushRect, pt);
-    CGContextAddEllipseInRect(ctx, brushRect);    
+    CGContextSaveGState(ctx);
+    CGContextSetLineWidth(ctx, 0);
+    CGContextAddEllipseInRect(ctx, brushRect);   
+    CGContextFillPath(ctx);
+    CGContextRestoreGState(ctx);
 }
 
+//-(void)drawLineFromPoint:(CGPoint)start to:(CGPoint)end on:(CGContextRef)ctx{
+//	int count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
+//	for(int i = 0; i < count; ++i) {
+//        CGPoint pt = CGPointMake(
+//                                 start.x + (end.x - start.x) * ((CGFloat)i / (CGFloat)count),
+//                                 start.y + (end.y - start.y) * ((CGFloat)i / (CGFloat)count)
+//                                 );
+//        [self drawPointAt:pt on:ctx];
+//	}
+//}
+
 -(void)drawLineFromPoint:(CGPoint)start to:(CGPoint)end on:(CGContextRef)ctx{
-	int count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
-	for(int i = 0; i < count; ++i) {
-        CGPoint pt = CGPointMake(
-                                 start.x + (end.x - start.x) * ((CGFloat)i / (CGFloat)count),
-                                 start.y + (end.y - start.y) * ((CGFloat)i / (CGFloat)count)
-                                 );
-        [self drawPointAt:pt on:ctx];
-	}
+    CGContextAddLineToPoint(ctx, end.x, end.y);
 }
+
 
 -(void)updateAndRedisplayFull:(BOOL)isFull{
     UIGraphicsBeginImageContext(self.bounds.size);
@@ -68,10 +75,7 @@
 - (id)initWithCoder:(NSCoder*)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        if(![self privateInit]){
-            [self release];
-            self = nil;
-        }
+        [self privateInit];
 	}
 	return self;
 }
@@ -80,31 +84,33 @@
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if(self){
-        if(![self privateInit]){
-            [self release];
-            self = nil;
-        }
-    }
-    
+        [self privateInit];
+    }    
     return self;
 }
 
 
 - (void) dealloc
 {
-    [lastBrush release];
+    [lastTool release];
     [currentDrawing release];
     [painting release];
 	[super dealloc];
 }
 
-#pragma mark actions
+#pragma mark accessing
 
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
 {
-    [lastBrush release];
-    lastBrush = [[Brush alloc] initWithRed:red green:green blue:blue];
-    [painting setBrush:lastBrush];
+    [lastTool release];
+    lastTool = [[Brush alloc] initWithRed:red green:green blue:blue];
+    [painting setTool:lastTool];
+}
+
+-(void)setEraser{
+    [lastTool release];
+    lastTool = [Eraser new];
+    [painting setTool:lastTool];    
 }
 
 #pragma mark UIView
@@ -122,7 +128,7 @@
     
     if(!painting){
         painting = [Painting new];
-        [painting setBrush:lastBrush];
+        [painting setTool:lastTool];
     }
     [painting addPoint:point];
     [self updateAndRedisplayFull:NO];
@@ -154,24 +160,44 @@
 }
 
 #pragma mark PaintingDrawer
--(void)paintingWantsToBeginDrawing:(Painting *)_painting{
+-(void)painting:(Painting *)_painting wantsToBeginDrawingAtPoint:(CGPoint)pt{
     CGContextRef ctx = (CGContextRef)_painting.userInfo;
-    CGContextSetFillColorWithColor(ctx, painting.lastBrush.CGColor);
+    CGContextSetLineCap(ctx, kCGLineCapRound);
+    CGContextSetLineJoin(ctx, kCGLineJoinRound);
+    CGContextMoveToPoint(ctx, pt.x, CGRectGetHeight(self.bounds) - pt.y);
+}
+
+-(void)painting:(Painting *)_painting wantsToUseBrush:(Brush*)brush{
+    CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    CGContextSetLineWidth(ctx, kBrushSize);
+    CGContextSetBlendMode(ctx, kCGBlendModeCopy);
+    CGContextSetStrokeColorWithColor(ctx, brush.CGColor);
+    CGContextSetFillColorWithColor(ctx, brush.CGColor);    
+}
+
+-(void)painting:(Painting *)_painting wantsToUseEraser:(Eraser*)eraser{
+    CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    CGContextSetLineWidth(ctx, kBrushSize * 2);
+    CGContextSetBlendMode(ctx, kCGBlendModeClear);
 }
 
 -(void)paintingWantsToEndDrawing:(Painting *)_painting{
     CGContextRef ctx = (CGContextRef)_painting.userInfo;
-    CGContextFillPath(ctx);    
+    CGContextStrokePath(ctx);
+//    CGContextFillPath(ctx);
 }
 
 
 -(void)painting:(Painting*)_painting wantsToDrawPoint:(CGPoint)pt{
     CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    pt.y = CGRectGetHeight(self.bounds) - pt.y;
     [self drawPointAt:pt on:ctx];
 }
 
 -(void)painting:(Painting*)_painting wantsToDrawLineFrom:(CGPoint)start to:(CGPoint)end{
     CGContextRef ctx = (CGContextRef)_painting.userInfo;
+    start.y = CGRectGetHeight(self.bounds) - start.y;
+    end.y = CGRectGetHeight(self.bounds) - end.y;
     [self drawLineFromPoint:start to:end on:ctx];
 }
 

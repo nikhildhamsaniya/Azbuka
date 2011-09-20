@@ -156,8 +156,8 @@ static const float GAP = 5.0;
 }
 
 -(void)onErase{
-    [[SoundEffect eraseEffect] play];
-    [delegate paletteDidErase];
+//    [[SoundEffect eraseEffect] play];
+    [delegate paletteDidChooseEraser];
 }
 
 -(void)updateSelectedColor{

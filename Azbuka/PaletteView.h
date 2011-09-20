@@ -2,7 +2,7 @@
 
 @protocol PaletteViewDelegate
 -(void)paletteDidChooseColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
--(void)paletteDidErase;
+-(void)paletteDidChooseEraser;
 @end
 
 @interface PaletteView : UIView {
