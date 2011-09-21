@@ -147,6 +147,7 @@ static const float animationDuration = 0.5;
     isNext ? index++ : index--;
     LetterView *newExposed = [letters objectAtIndex:index];
     LetterView *lastExposed = exposedLetter;
+    [self bringSubviewToFront:lastExposed];
     [newExposed willExpand];
     [delegate willExposeLetter:index view:exposedLetter];
     [UIView animateWithDuration:animationDuration
