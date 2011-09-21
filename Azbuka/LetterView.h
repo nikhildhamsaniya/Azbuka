@@ -12,11 +12,16 @@
 @property(nonatomic, assign) CGSize thumbnailSize;
 -(id)initWithLetterIndex:(int)index;
 
--(void)beThumbnailed;
--(void)willFullsized;
--(void)didFullsized;
+-(void)beContracted;
+-(void)didContract;
+-(void)willExpand;
+-(void)animateContracting;
+-(void)animateExpanding;
 
 - (void)setEraser;
 - (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
+
+-(void)writePaintingToFile;
+-(void)loadPaintingFromFile;
 
 @end

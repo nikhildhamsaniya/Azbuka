@@ -23,17 +23,6 @@
     CGContextRestoreGState(ctx);
 }
 
-//-(void)drawLineFromPoint:(CGPoint)start to:(CGPoint)end on:(CGContextRef)ctx{
-//	int count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
-//	for(int i = 0; i < count; ++i) {
-//        CGPoint pt = CGPointMake(
-//                                 start.x + (end.x - start.x) * ((CGFloat)i / (CGFloat)count),
-//                                 start.y + (end.y - start.y) * ((CGFloat)i / (CGFloat)count)
-//                                 );
-//        [self drawPointAt:pt on:ctx];
-//	}
-//}
-
 -(void)drawLineFromPoint:(CGPoint)start to:(CGPoint)end on:(CGContextRef)ctx{
     CGContextAddLineToPoint(ctx, end.x, end.y);
 }
@@ -65,7 +54,7 @@
     
     [painting release];
     painting = [Painting new];
-    [self updateAndRedisplayFull:YES];
+    [self setNeedsDisplay];
 }
 
 #pragma mark lifecycle
@@ -110,8 +99,9 @@
 
 -(void)drawRect:(CGRect)rect{
     if(renderedPainting){
-        CGRect imageRect = (CGRect){CGPointZero, renderedPainting.size};
-        CGContextDrawImage(UIGraphicsGetCurrentContext(), imageRect, renderedPainting.CGImage);        
+//        CGRect imageRect = (CGRect){CGPointZero, renderedPainting.size};
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        CGContextDrawImage(ctx, self.bounds, renderedPainting.CGImage);        
     }
 }
 

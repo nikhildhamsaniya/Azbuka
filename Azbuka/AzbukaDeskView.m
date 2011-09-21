@@ -56,8 +56,9 @@ static const float animationDuration = 0.5;
     NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:33];
     for(int i = 0; i < 33; i++){
         LetterView *v = [[[LetterView alloc] initWithLetterIndex:i] autorelease];
+        [v loadPaintingFromFile];
         v.thumbnailSize = [self gridCellSize];
-        [v beThumbnailed];
+        [v beContracted];
         UIGestureRecognizer *gr = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)] autorelease];
         [v addGestureRecognizer:gr];
         
@@ -70,6 +71,11 @@ static const float animationDuration = 0.5;
 -(void)privateInit{
     [self initLetters];
     [self initButtons];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(onEnteredBackground:) 
+                                                 name: UIApplicationDidEnterBackgroundNotification
+                                               object: nil];
 }
 
 -(int)exposedLetterIndex{
@@ -140,18 +146,19 @@ static const float animationDuration = 0.5;
     int index = [letters indexOfObject:exposedLetter];
     isNext ? index++ : index--;
     LetterView *newExposed = [letters objectAtIndex:index];
-    [exposedLetter beThumbnailed];
-    [newExposed willFullsized];
+    LetterView *lastExposed = exposedLetter;
+    [newExposed willExpand];
     [delegate willExposeLetter:index view:exposedLetter];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
-                         [self deckLetter:exposedLetter];
+                         [lastExposed animateContracting];
+                         [newExposed animateExpanding];
+                         [self deckLetter:lastExposed];
                          exposedLetter = newExposed;
                          [self layoutExposedLetter];                         
                      } completion:^(BOOL ignore){
-                         [exposedLetter didFullsized];
-                         [delegate didExposeLetter:index view:exposedLetter];
-                         
+                         [lastExposed didContract];
+                         [delegate didExposeLetter:index view:exposedLetter];                         
                      }];    
 
 }
@@ -211,10 +218,11 @@ static const float animationDuration = 0.5;
 -(void)exposeLetter:(int)index{
     exposedLetter = [letters objectAtIndex:index];
     [self bringSubviewToFront:exposedLetter];
-    [exposedLetter willFullsized];
+    [exposedLetter willExpand];
     [delegate willExposeLetter:index view:exposedLetter];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
+                         [exposedLetter animateExpanding];
                          [self layoutExposedLetter];
                          [self deckOtherLetters];
                          prevButton.hidden = NO;
@@ -223,7 +231,6 @@ static const float animationDuration = 0.5;
                          nextButton.alpha = 0.5;
                      }
                      completion:^(BOOL finished){
-                         [exposedLetter didFullsized];
                          [self layoutNavigationButtons];
                          prevButton.userInteractionEnabled = YES;
                          nextButton.userInteractionEnabled = YES;
@@ -233,11 +240,12 @@ static const float animationDuration = 0.5;
 }
 
 -(void)unexpose{
-    [exposedLetter beThumbnailed];
+    LetterView *lastExposed = exposedLetter;
     exposedLetter = nil;
     [delegate allLettersWillUnexposed];
     [UIView animateWithDuration:animationDuration
                      animations:^(void){
+                         [lastExposed animateContracting];
                          [self layoutLetters];
                          prevButton.alpha = 0.0;
                          nextButton.alpha = 0.0;                         
@@ -246,7 +254,8 @@ static const float animationDuration = 0.5;
                      }
                      completion:^(BOOL finished){
                          prevButton.hidden = YES;
-                         nextButton.hidden = YES;                         
+                         nextButton.hidden = YES;
+                         [lastExposed didContract];
                          [delegate allLettersDidUnexposed];
                      }];
 
@@ -273,6 +282,10 @@ static const float animationDuration = 0.5;
 
 -(void)onNextButton{
     if([self exposedLetterIndex] < 32) [self showNextLetter:YES];
+}
+
+-(void)onEnteredBackground:(NSNotification*)ignore{
+    [exposedLetter writePaintingToFile];
 }
 
 

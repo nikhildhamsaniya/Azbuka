@@ -13,6 +13,26 @@
 
 #pragma mark private
 
+- (NSString *)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+-(NSString*)savedPaintingPath{
+    NSString *filename = [NSString stringWithFormat:@"%d-saved-painting.png", letterIndex + 1];
+    return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:filename];
+}
+
+-(void)writePaintingToFile{
+    if(painting)self.renderedPainting = painting.renderedPainting;
+    NSData* paintingData = UIImagePNGRepresentation(self.renderedPainting);
+    [paintingData writeToFile:[self savedPaintingPath] atomically:YES];    
+}
+
+-(void)loadPaintingFromFile{
+    self.renderedPainting = [[[UIImage alloc] initWithContentsOfFile:[self savedPaintingPath]] autorelease];
+}
+
+
 -(UIImage*)originalImage{
     return [UIImage imageNamed:[NSString stringWithFormat:@"%d.JPG", letterIndex + 1]];
 }
@@ -36,7 +56,13 @@
 -(void)showPainting{
     if(painting) [painting release];
     painting = [[PaintingView alloc] initWithFrame:self.bounds];
-    [painting setBrushColorWithRed:0 green:0 blue:1];
+    painting.autoresizingMask =     UIViewAutoresizingFlexibleLeftMargin |
+                                    UIViewAutoresizingFlexibleWidth |
+                                    UIViewAutoresizingFlexibleRightMargin |
+                                    UIViewAutoresizingFlexibleTopMargin |
+                                    UIViewAutoresizingFlexibleHeight | 
+                                    UIViewAutoresizingFlexibleBottomMargin;
+
     [self addSubview:painting];
     painting.renderedPainting = self.renderedPainting;
 }
@@ -46,6 +72,7 @@
     [painting removeFromSuperview];
     [painting release];
     painting = nil;
+    [self writePaintingToFile];
 }
 
 #pragma mark properties
@@ -82,28 +109,31 @@
     [super dealloc];
 }
 
-#pragma mark UIView
-
--(void)layoutSubviews{
-    [super layoutSubviews];
-//    painting.frame = self.bounds;
-}
-
 #pragma mark actions
 
--(void)beThumbnailed{
+-(void)beContracted{
     self.image = self.thumbnailImage;
+}
+
+-(void)didContract{
+    [self beContracted];
     [self pickupPainting];
-    
 }
 
--(void)willFullsized{
+-(void)willExpand{
     self.image = self.originalImage;
+    [self showPainting];
+    painting.alpha = 0;
 }
 
--(void)didFullsized{
-    [self showPainting];
+-(void)animateContracting{
+    painting.alpha = 0; 
 }
+
+-(void)animateExpanding{
+    painting.alpha = 1;
+}
+
 
 - (void)setEraser{
     [painting setEraser];
