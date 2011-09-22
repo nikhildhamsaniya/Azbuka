@@ -227,9 +227,9 @@ static const float animationDuration = 0.5;
                          [self layoutExposedLetter];
                          [self deckOtherLetters];
                          prevButton.hidden = NO;
-                         prevButton.alpha = 0.5;
+                         prevButton.alpha = 1;
                          nextButton.hidden = NO;
-                         nextButton.alpha = 0.5;
+                         nextButton.alpha = 1;
                      }
                      completion:^(BOOL finished){
                          [self layoutNavigationButtons];

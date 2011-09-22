@@ -134,13 +134,8 @@
     painting.alpha = 1;
 }
 
-
-- (void)setEraser{
-    [painting setEraser];
-}
-
-- (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
-    [painting setBrushColorWithRed:red green:green blue:blue];
+- (void)setPaintingTool:(PaintingTool*)tool{
+    [painting setPaintingTool:tool];
 }
 
 @end

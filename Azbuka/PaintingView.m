@@ -1,5 +1,6 @@
 #import "PaintingView.h"
 #import "CGGeometry+Utils.h"
+#import "Painting.h"
 
 @implementation PaintingView
 @synthesize renderedPainting;
@@ -86,13 +87,8 @@
 
 #pragma mark accessing
 
-- (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
-{
-    [painting setTool:[Brush brushWithRed:red green:green blue:blue]];
-}
-
--(void)setEraser{
-    [painting setTool:[Eraser eraser]];    
+-(void)setPaintingTool:(PaintingTool*)tool{
+    [painting setTool:tool];
 }
 
 #pragma mark UIView

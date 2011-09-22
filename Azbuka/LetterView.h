@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+@class PaintingTool;
 @class PaintingView;
 
 @interface LetterView : UIImageView {
@@ -18,8 +19,7 @@
 -(void)animateContracting;
 -(void)animateExpanding;
 
-- (void)setEraser;
-- (void)setPaintingBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
+- (void)setPaintingTool:(PaintingTool*)tool;
 
 -(void)writePaintingToFile;
 -(void)loadPaintingFromFile;

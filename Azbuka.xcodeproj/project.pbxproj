@@ -42,8 +42,6 @@
 		E60844FD140C30E800FBD59E /* 33.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844DC140C30E800FBD59E /* 33.JPG */; };
 		E60845EC140C49A400FBD59E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E60845EB140C49A400FBD59E /* QuartzCore.framework */; };
 		E60845FE140C4D7B00FBD59E /* CGGeometry+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */; };
-		E637D839141BF8B200FE4A97 /* PaletteView.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D838141BF8B200FE4A97 /* PaletteView.m */; };
-		E637D873141C33CC00FE4A97 /* AzbukaView.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D872141C33CC00FE4A97 /* AzbukaView.m */; };
 		E637D880141CDFF200FE4A97 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D87D141CDFF100FE4A97 /* PaintingView.m */; };
 		E637D881141CDFF200FE4A97 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = E637D87F141CDFF100FE4A97 /* SoundEffect.m */; };
 		E637D883141CE01D00FE4A97 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E637D882141CE01C00FE4A97 /* OpenGLES.framework */; };
@@ -51,6 +49,11 @@
 		E637D89C141CEA7C00FE4A97 /* Select.caf in Resources */ = {isa = PBXBuildFile; fileRef = E637D89A141CEA7C00FE4A97 /* Select.caf */; };
 		E637D89D141CEA7C00FE4A97 /* Erase.caf in Resources */ = {isa = PBXBuildFile; fileRef = E637D89B141CEA7C00FE4A97 /* Erase.caf */; };
 		E637D89F141CEA8800FE4A97 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = E637D89E141CEA8800FE4A97 /* Particle.png */; };
+		E66067CE142A98C600F2FEA1 /* PaletteController.m in Sources */ = {isa = PBXBuildFile; fileRef = E66067CC142A98C600F2FEA1 /* PaletteController.m */; };
+		E66067CF142A98C600F2FEA1 /* PaletteController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66067CD142A98C600F2FEA1 /* PaletteController.xib */; };
+		E66067D3142A9A9C00F2FEA1 /* palette_hor.png in Resources */ = {isa = PBXBuildFile; fileRef = E66067D1142A9A9C00F2FEA1 /* palette_hor.png */; };
+		E66067D4142A9A9C00F2FEA1 /* palette_vert.png in Resources */ = {isa = PBXBuildFile; fileRef = E66067D2142A9A9C00F2FEA1 /* palette_vert.png */; };
+		E66067D6142AADEC00F2FEA1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = E66067D5142AADEC00F2FEA1 /* background.png */; };
 		E685803C1417850600CC7216 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = E685803B1417850600CC7216 /* eraser.png */; };
 		E69626AC1427E9E300CCA12F /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = E69626AB1427E9E300CCA12F /* Painting.m */; };
 		E6D07EA3140C29810005BF02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D07EA2140C29810005BF02 /* UIKit.framework */; };
@@ -107,10 +110,6 @@
 		E60845EB140C49A400FBD59E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E60845FC140C4D7B00FBD59E /* CGGeometry+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CGGeometry+Utils.h"; path = "Azbuka/CGGeometry+Utils.h"; sourceTree = "<group>"; };
 		E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CGGeometry+Utils.m"; path = "Azbuka/CGGeometry+Utils.m"; sourceTree = "<group>"; };
-		E637D837141BF8B200FE4A97 /* PaletteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteView.h; sourceTree = "<group>"; };
-		E637D838141BF8B200FE4A97 /* PaletteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteView.m; sourceTree = "<group>"; };
-		E637D871141C33CC00FE4A97 /* AzbukaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzbukaView.h; sourceTree = "<group>"; };
-		E637D872141C33CC00FE4A97 /* AzbukaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzbukaView.m; sourceTree = "<group>"; };
 		E637D87C141CDFF100FE4A97 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
 		E637D87D141CDFF100FE4A97 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
 		E637D87E141CDFF100FE4A97 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
@@ -122,6 +121,12 @@
 		E637D89A141CEA7C00FE4A97 /* Select.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Select.caf; sourceTree = "<group>"; };
 		E637D89B141CEA7C00FE4A97 /* Erase.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Erase.caf; sourceTree = "<group>"; };
 		E637D89E141CEA8800FE4A97 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
+		E66067CB142A98C600F2FEA1 /* PaletteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteController.h; sourceTree = "<group>"; };
+		E66067CC142A98C600F2FEA1 /* PaletteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteController.m; sourceTree = "<group>"; };
+		E66067CD142A98C600F2FEA1 /* PaletteController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaletteController.xib; sourceTree = "<group>"; };
+		E66067D1142A9A9C00F2FEA1 /* palette_hor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette_hor.png; sourceTree = "<group>"; };
+		E66067D2142A9A9C00F2FEA1 /* palette_vert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette_vert.png; sourceTree = "<group>"; };
+		E66067D5142AADEC00F2FEA1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		E685803B1417850600CC7216 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
 		E69626AA1427E9E300CCA12F /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		E69626AB1427E9E300CCA12F /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
@@ -169,6 +174,9 @@
 		E60844BA140C2F9500FBD59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E66067D5142AADEC00F2FEA1 /* background.png */,
+				E66067D1142A9A9C00F2FEA1 /* palette_hor.png */,
+				E66067D2142A9A9C00F2FEA1 /* palette_vert.png */,
 				E637D89E141CEA8800FE4A97 /* Particle.png */,
 				E637D89A141CEA7C00FE4A97 /* Select.caf */,
 				E637D89B141CEA7C00FE4A97 /* Erase.caf */,
@@ -274,21 +282,20 @@
 				E6D07EB4140C29820005BF02 /* MainWindow.xib */,
 				E6EB8B841415B586009FD6D9 /* AzbukaDeskView.h */,
 				E6EB8B851415B586009FD6D9 /* AzbukaDeskView.m */,
-				E637D871141C33CC00FE4A97 /* AzbukaView.h */,
-				E637D872141C33CC00FE4A97 /* AzbukaView.m */,
 				E6EB8B8A1415C53C009FD6D9 /* AzbukaViewController.h */,
 				E6EB8B8B1415C53C009FD6D9 /* AzbukaViewController.m */,
 				E6EB8B8C1415C53C009FD6D9 /* AzbukaViewController.xib */,
 				E6EB8B9614161BC6009FD6D9 /* LetterView.h */,
 				E6EB8B9714161BC7009FD6D9 /* LetterView.m */,
-				E637D837141BF8B200FE4A97 /* PaletteView.h */,
-				E637D838141BF8B200FE4A97 /* PaletteView.m */,
+				E69626AA1427E9E300CCA12F /* Painting.h */,
+				E69626AB1427E9E300CCA12F /* Painting.m */,
 				E637D87C141CDFF100FE4A97 /* PaintingView.h */,
 				E637D87D141CDFF100FE4A97 /* PaintingView.m */,
 				E637D87E141CDFF100FE4A97 /* SoundEffect.h */,
 				E637D87F141CDFF100FE4A97 /* SoundEffect.m */,
-				E69626AA1427E9E300CCA12F /* Painting.h */,
-				E69626AB1427E9E300CCA12F /* Painting.m */,
+				E66067CB142A98C600F2FEA1 /* PaletteController.h */,
+				E66067CC142A98C600F2FEA1 /* PaletteController.m */,
+				E66067CD142A98C600F2FEA1 /* PaletteController.xib */,
 			);
 			path = Azbuka;
 			sourceTree = "<group>";
@@ -395,6 +402,10 @@
 				E637D89C141CEA7C00FE4A97 /* Select.caf in Resources */,
 				E637D89D141CEA7C00FE4A97 /* Erase.caf in Resources */,
 				E637D89F141CEA8800FE4A97 /* Particle.png in Resources */,
+				E66067CF142A98C600F2FEA1 /* PaletteController.xib in Resources */,
+				E66067D3142A9A9C00F2FEA1 /* palette_hor.png in Resources */,
+				E66067D4142A9A9C00F2FEA1 /* palette_vert.png in Resources */,
+				E66067D6142AADEC00F2FEA1 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,11 +422,10 @@
 				E6EB8B861415B586009FD6D9 /* AzbukaDeskView.m in Sources */,
 				E6EB8B8D1415C53C009FD6D9 /* AzbukaViewController.m in Sources */,
 				E6EB8B9814161BC8009FD6D9 /* LetterView.m in Sources */,
-				E637D839141BF8B200FE4A97 /* PaletteView.m in Sources */,
-				E637D873141C33CC00FE4A97 /* AzbukaView.m in Sources */,
 				E637D880141CDFF200FE4A97 /* PaintingView.m in Sources */,
 				E637D881141CDFF200FE4A97 /* SoundEffect.m in Sources */,
 				E69626AC1427E9E300CCA12F /* Painting.m in Sources */,
+				E66067CE142A98C600F2FEA1 /* PaletteController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

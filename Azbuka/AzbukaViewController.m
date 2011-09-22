@@ -2,10 +2,31 @@
 #import "CGGeometry+Utils.h"
 #import "AzbukaDeskView.h"
 #import "LetterView.h"
+#import "Painting.h"
+#import "CGGeometry+Utils.h"
 
 @implementation AzbukaViewController
 
 #pragma mark private
+
+-(void)updatePaletteViewAnimated:(BOOL)animated{
+    BOOL hidden = palette.view.hidden;
+    float alpha = palette.view.alpha;
+    [palette.view removeFromSuperview];    
+    if(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)){        
+        [palette loadHorizontalView];
+        palette.view.center = CGPointMake(CGRectGetWidth(self.view.bounds) - CGRectGetWidth(palette.view.bounds)/2 - 20,
+                                          CGRectGetHeight(self.view.bounds) - CGRectGetHeight(palette.view.bounds)/2 - 15);
+    }else{
+        [palette loadVerticalView];
+        palette.view.center = CGPointMake(CGRectGetWidth(self.view.bounds) - CGRectGetWidth(palette.view.bounds)/2 - 15,
+                                          CGRectGetHeight(palette.view.bounds)/2 + 5);
+    }
+    palette.view.hidden = hidden;
+    palette.view.alpha = alpha;
+    [self.view addSubview:palette.view];
+    [self.view bringSubviewToFront:palette.view];
+}
 
 #pragma mark lifecycle
 
@@ -13,16 +34,16 @@
 {
     [super viewDidLoad];
     deskView.delegate = self;
-    
-    paletteView.delegate = self;
-    paletteView.hidden = YES;
-    paletteView.alpha = 0;
+    palette.delegate = self;
+    palette.view.hidden = YES;
+    palette.view.alpha = 0;
+    [self updatePaletteViewAnimated:NO];    
 }
 
 
 - (void)dealloc
 {
-    [paletteView release];
+    [palette release];
     deskView.delegate = nil;
     [deskView release];    
     [super dealloc];
@@ -38,20 +59,33 @@
 	return YES;
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [self updatePaletteViewAnimated:YES];
+}
+
+
 #pragma mark AzbukaLayoutViewProto
 
 -(void)willExposeLetter:(int)index view:(UIView*)view{
-    paletteView.hidden = NO;
-    [UIView animateWithDuration:1 animations:^(void){paletteView.alpha = 1;}];    
+    palette.view.hidden = NO;
+    [UIView animateWithDuration:1 animations:^(void){palette.view.alpha = 1;}];    
 }
 
 -(void)didExposeLetter:(int)index view:(UIView*)view{
-    [paletteView updateSelectedColor];
+    [deskView.exposedLetter setPaintingTool:palette.selectedTool];
 }
 
 
 -(void)allLettersWillUnexposed{
-    [UIView animateWithDuration:0.3 animations:^(void){paletteView.alpha = 0;} completion:^(BOOL ignore){paletteView.hidden = YES;}];
+    [UIView animateWithDuration:0.3 animations:^(void){
+        palette.view.alpha = 0;
+    } completion:^(BOOL ignore){
+        palette.view.hidden = YES;
+    }];
 }
 
 -(void)allLettersDidUnexposed{
@@ -59,14 +93,10 @@
 }
 
 
-#pragma mark PaletteViewDelegate
+#pragma mark PaletteDelegate
 
--(void)paletteDidChooseColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
-    [deskView.exposedLetter setPaintingBrushColorWithRed:red  green:green blue:blue];
-}
-
--(void)paletteDidChooseEraser{
-    [deskView.exposedLetter setEraser];
+-(void)paletteDidSelectTool:(PaintingTool*)tool{
+    [deskView.exposedLetter setPaintingTool:tool];
 }
 
 @end

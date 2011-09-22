@@ -12,8 +12,10 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBProxyObject</string>
+			<string>IBUIViewController</string>
+			<string>IBUIImageView</string>
 			<string>IBUIView</string>
+			<string>IBProxyObject</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -41,29 +43,30 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="IBUIImageView" id="602344186">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrameSize">{1024, 748}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="24627276"/>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">background.png</string>
+						</object>
+					</object>
 					<object class="IBUIView" id="24627276">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{1024, 748}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1066163487"/>
-						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MSAwLjkzMzMzMzMzMzMgMC4zMjk0MTE3NjQ3AA</bytes>
-						</object>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-					</object>
-					<object class="IBUIView" id="1066163487">
-						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{804, 20}, {200, 250}}</string>
-						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC44NDg5NDQ3MjM2IDAuNzEwMzg1MjYzIDAuMjIzMTE5NzIwOAA</bytes>
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
@@ -71,7 +74,7 @@
 				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="24627276"/>
+				<reference key="NSNextKeyView" ref="602344186"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -85,6 +88,17 @@
 					<int key="interfaceOrientation">3</int>
 				</object>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+			</object>
+			<object class="IBUIViewController" id="39218467">
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
+				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+					<int key="IBUIInterfaceOrientation">1</int>
+					<int key="interfaceOrientation">1</int>
+				</object>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+				<bool key="IBUIHorizontal">NO</bool>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -100,27 +114,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">paletteView</string>
-						<reference key="source" ref="766721923"/>
-						<reference key="destination" ref="1066163487"/>
-					</object>
-					<int key="connectionID">8</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">paletteView</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="1066163487"/>
-					</object>
-					<int key="connectionID">9</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">deskView</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="24627276"/>
 					</object>
 					<int key="connectionID">10</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">palette</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="39218467"/>
+					</object>
+					<int key="connectionID">12</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -149,7 +155,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="24627276"/>
-							<reference ref="1066163487"/>
+							<reference ref="602344186"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -162,8 +168,13 @@
 						<reference key="parent" ref="766721923"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">7</int>
-						<reference key="object" ref="1066163487"/>
+						<int key="objectID">11</int>
+						<reference key="object" ref="39218467"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">13</int>
+						<reference key="object" ref="602344186"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>
@@ -174,24 +185,24 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
-					<string>2.CustomClassName</string>
+					<string>11.CustomClassName</string>
+					<string>11.IBPluginDependency</string>
+					<string>13.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>4.CustomClassName</string>
 					<string>4.IBPluginDependency</string>
-					<string>7.CustomClassName</string>
-					<string>7.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>AzbukaViewController</string>
 					<string>UIResponder</string>
-					<string>AzbukaView</string>
+					<string>PaletteController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{353, 156}, {1024, 768}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>AzbukaDeskView</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>PaletteView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -207,7 +218,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">10</int>
+			<int key="maxID">13</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -221,25 +232,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">AzbukaView</string>
-					<string key="superclassName">UIView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">paletteView</string>
-						<string key="NS.object.0">PaletteView</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">paletteView</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">paletteView</string>
-							<string key="candidateClassName">PaletteView</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AzbukaView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">AzbukaViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
@@ -247,12 +239,12 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>deskView</string>
-							<string>paletteView</string>
+							<string>palette</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>AzbukaDeskView</string>
-							<string>PaletteView</string>
+							<string>PaletteController</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -260,7 +252,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>deskView</string>
-							<string>paletteView</string>
+							<string>palette</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -269,8 +261,8 @@
 								<string key="candidateClassName">AzbukaDeskView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">paletteView</string>
-								<string key="candidateClassName">PaletteView</string>
+								<string key="name">palette</string>
+								<string key="candidateClassName">PaletteController</string>
 							</object>
 						</object>
 					</object>
@@ -280,20 +272,30 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">PaletteView</string>
-					<string key="superclassName">UIView</string>
+					<string key="className">PaletteController</string>
+					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>onBlack</string>
 							<string>onBlue</string>
+							<string>onBrown</string>
 							<string>onErase</string>
 							<string>onGreen</string>
+							<string>onLightBlue</string>
+							<string>onOrange</string>
 							<string>onRed</string>
+							<string>onViolet</string>
 							<string>onYellow</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -305,16 +307,29 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>onBlack</string>
 							<string>onBlue</string>
+							<string>onBrown</string>
 							<string>onErase</string>
 							<string>onGreen</string>
+							<string>onLightBlue</string>
+							<string>onOrange</string>
 							<string>onRed</string>
+							<string>onViolet</string>
 							<string>onYellow</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
+								<string key="name">onBlack</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">onBlue</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">onBrown</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -326,7 +341,19 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
+								<string key="name">onLightBlue</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">onOrange</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
 								<string key="name">onRed</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">onViolet</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -335,9 +362,41 @@
 							</object>
 						</object>
 					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>horPalette</string>
+							<string>vertPalette</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIView</string>
+							<string>UIView</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>horPalette</string>
+							<string>vertPalette</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">horPalette</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">vertPalette</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PaletteView.h</string>
+						<string key="minorKey">./Classes/PaletteController.h</string>
 					</object>
 				</object>
 			</object>
@@ -350,6 +409,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">background.png</string>
+			<string key="NS.object.0">{768, 1024}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>
 </archive>
