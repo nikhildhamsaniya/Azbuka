@@ -2,6 +2,7 @@
 #import "UIAlertView+Utils.h"
 #import "NSError+Utils.h"
 #import "CGGeometry+Utils.h"
+#import "Purchase.h"
 
 @implementation AboutController
 @synthesize delegate;
@@ -28,9 +29,14 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPurchaseBegin:) name:kPurchaseBeginEvent object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPurchaseEnd:) name:kPurchaseEndEvent object:nil];
 }
 
 - (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [supportButton release];
+    [indicator release];
     [super dealloc];
 }
 
@@ -48,7 +54,7 @@
 }
 
 -(IBAction)onSupport{   
-    
+    [delegate aboutControllerWantToPurchase:self]; 
 }
 
 -(IBAction)onVersalab{
@@ -68,6 +74,17 @@
 
 -(IBAction)onSafka{
     [self sendMailTo:@"artsafka@gmail.com" name:@"Аня"];
+}
+
+
+-(void)onPurchaseBegin:(NSNotification*)ignore{
+    supportButton.enabled = NO;
+    [indicator startAnimating];
+}
+
+-(void)onPurchaseEnd:(NSNotification*)ignore{
+    supportButton.enabled = YES;
+    [indicator stopAnimating];
 }
 
 #pragma mark MFMailComposeViewControllerDelegate

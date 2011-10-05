@@ -5,6 +5,7 @@
 #import "Painting.h"
 #import "CGGeometry+Utils.h"
 #import "AboutController.h"
+#import "NSError+Utils.h"
 
 @implementation AzbukaViewController
 
@@ -34,6 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    purchase = [[Purchase alloc] initWithDelegate:self];
+    purchase.delegate = self;
+    
     deskView.delegate = self;
     palette.delegate = self;
     palette.view.hidden = YES;
@@ -44,6 +49,8 @@
 
 - (void)dealloc
 {
+    purchase.delegate = nil;
+    [purchase release];
     [palette release];
     deskView.delegate = nil;
     [deskView release];    
@@ -106,6 +113,21 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(void)aboutControllerWantToPurchase:(AboutController*)ctrl{
+    [purchase makePurchase];
+}
+
+#pragma mark PurchaseDelegate
+
+- (void)purchaseFailWithError:(NSError *)error{
+    [error display];
+}
+
+- (void)purchased{
+    
+}
+
+
 #pragma mark actions
 
 -(IBAction)onAbout{
@@ -114,5 +136,6 @@
     ctrl.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentModalViewController:ctrl animated:YES];
 }
+
 
 @end
