@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E604E697143CB446004A3177 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E695143CB446004A3177 /* AboutController.m */; };
+		E604E698143CB446004A3177 /* AboutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E604E696143CB446004A3177 /* AboutController.xib */; };
+		E604E69C143CB8DD004A3177 /* about-text-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E604E69A143CB8DD004A3177 /* about-text-background.png */; };
+		E604E69D143CB8DD004A3177 /* who-did-this.png in Resources */ = {isa = PBXBuildFile; fileRef = E604E69B143CB8DD004A3177 /* who-did-this.png */; };
+		E604E69F143CB921004A3177 /* support-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E604E69E143CB921004A3177 /* support-button.png */; };
+		E604E6A1143CC4B8004A3177 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E604E6A0143CC4B8004A3177 /* MessageUI.framework */; };
+		E604E6A4143CC87C004A3177 /* UIAlertView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E6A3143CC87C004A3177 /* UIAlertView+Utils.m */; };
+		E604E6A7143CC896004A3177 /* NSError+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E6A6143CC896004A3177 /* NSError+Utils.m */; };
+		E604E6AC143CC8B4004A3177 /* NSArray+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E6A9143CC8B4004A3177 /* NSArray+Utils.m */; };
+		E604E6AD143CC8B4004A3177 /* NSObject+Invocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E6AB143CC8B4004A3177 /* NSObject+Invocation.m */; };
+		E604E6B0143CC8C6004A3177 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E6AF143CC8C6004A3177 /* NSObject+Utils.m */; };
+		E604E6B3143CC8E6004A3177 /* NSMutableArray+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E604E6B2143CC8E6004A3177 /* NSMutableArray+Utils.m */; };
+		E605F828143CDB2400C10658 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E605F826143CDB2400C10658 /* WebViewController.m */; };
+		E605F829143CDB2400C10658 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E605F827143CDB2400C10658 /* WebViewController.xib */; };
 		E60844DD140C30E800FBD59E /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844BC140C30E800FBD59E /* 1.JPG */; };
 		E60844DE140C30E800FBD59E /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844BD140C30E800FBD59E /* 2.JPG */; };
 		E60844DF140C30E800FBD59E /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E60844BE140C30E800FBD59E /* 3.JPG */; };
@@ -74,6 +88,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E604E694143CB446004A3177 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		E604E695143CB446004A3177 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		E604E696143CB446004A3177 /* AboutController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutController.xib; sourceTree = "<group>"; };
+		E604E69A143CB8DD004A3177 /* about-text-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-text-background.png"; sourceTree = "<group>"; };
+		E604E69B143CB8DD004A3177 /* who-did-this.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "who-did-this.png"; sourceTree = "<group>"; };
+		E604E69E143CB921004A3177 /* support-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "support-button.png"; sourceTree = "<group>"; };
+		E604E6A0143CC4B8004A3177 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E604E6A2143CC87C004A3177 /* UIAlertView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Utils.h"; sourceTree = "<group>"; };
+		E604E6A3143CC87C004A3177 /* UIAlertView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Utils.m"; sourceTree = "<group>"; };
+		E604E6A5143CC896004A3177 /* NSError+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Utils.h"; sourceTree = "<group>"; };
+		E604E6A6143CC896004A3177 /* NSError+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Utils.m"; sourceTree = "<group>"; };
+		E604E6A8143CC8B4004A3177 /* NSArray+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utils.h"; sourceTree = "<group>"; };
+		E604E6A9143CC8B4004A3177 /* NSArray+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utils.m"; sourceTree = "<group>"; };
+		E604E6AA143CC8B4004A3177 /* NSObject+Invocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Invocation.h"; sourceTree = "<group>"; };
+		E604E6AB143CC8B4004A3177 /* NSObject+Invocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Invocation.m"; sourceTree = "<group>"; };
+		E604E6AE143CC8C6004A3177 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
+		E604E6AF143CC8C6004A3177 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
+		E604E6B1143CC8E6004A3177 /* NSMutableArray+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Utils.h"; sourceTree = "<group>"; };
+		E604E6B2143CC8E6004A3177 /* NSMutableArray+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Utils.m"; sourceTree = "<group>"; };
+		E605F825143CDB2400C10658 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		E605F826143CDB2400C10658 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		E605F827143CDB2400C10658 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		E60844BC140C30E800FBD59E /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
 		E60844BD140C30E800FBD59E /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		E60844BE140C30E800FBD59E /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
@@ -159,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E604E6A1143CC4B8004A3177 /* MessageUI.framework in Frameworks */,
 				E637D891141CE09D00FE4A97 /* AudioToolbox.framework in Frameworks */,
 				E637D883141CE01D00FE4A97 /* OpenGLES.framework in Frameworks */,
 				E60845EC140C49A400FBD59E /* QuartzCore.framework in Frameworks */,
@@ -174,6 +211,9 @@
 		E60844BA140C2F9500FBD59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E604E69E143CB921004A3177 /* support-button.png */,
+				E604E69A143CB8DD004A3177 /* about-text-background.png */,
+				E604E69B143CB8DD004A3177 /* who-did-this.png */,
 				E66067D5142AADEC00F2FEA1 /* background.png */,
 				E66067D1142A9A9C00F2FEA1 /* palette_hor.png */,
 				E66067D2142A9A9C00F2FEA1 /* palette_vert.png */,
@@ -233,6 +273,18 @@
 		E60845F5140C4C7F00FBD59E /* Other sources */ = {
 			isa = PBXGroup;
 			children = (
+				E604E6B1143CC8E6004A3177 /* NSMutableArray+Utils.h */,
+				E604E6B2143CC8E6004A3177 /* NSMutableArray+Utils.m */,
+				E604E6AE143CC8C6004A3177 /* NSObject+Utils.h */,
+				E604E6AF143CC8C6004A3177 /* NSObject+Utils.m */,
+				E604E6A8143CC8B4004A3177 /* NSArray+Utils.h */,
+				E604E6A9143CC8B4004A3177 /* NSArray+Utils.m */,
+				E604E6AA143CC8B4004A3177 /* NSObject+Invocation.h */,
+				E604E6AB143CC8B4004A3177 /* NSObject+Invocation.m */,
+				E604E6A5143CC896004A3177 /* NSError+Utils.h */,
+				E604E6A6143CC896004A3177 /* NSError+Utils.m */,
+				E604E6A2143CC87C004A3177 /* UIAlertView+Utils.h */,
+				E604E6A3143CC87C004A3177 /* UIAlertView+Utils.m */,
 				E60845FC140C4D7B00FBD59E /* CGGeometry+Utils.h */,
 				E60845FD140C4D7B00FBD59E /* CGGeometry+Utils.m */,
 			);
@@ -242,6 +294,7 @@
 		E6D07E93140C29810005BF02 = {
 			isa = PBXGroup;
 			children = (
+				E604E6A0143CC4B8004A3177 /* MessageUI.framework */,
 				E6D07EA8140C29810005BF02 /* Azbuka */,
 				E60845F5140C4C7F00FBD59E /* Other sources */,
 				E60844BA140C2F9500FBD59E /* Resources */,
@@ -296,6 +349,12 @@
 				E66067CB142A98C600F2FEA1 /* PaletteController.h */,
 				E66067CC142A98C600F2FEA1 /* PaletteController.m */,
 				E66067CD142A98C600F2FEA1 /* PaletteController.xib */,
+				E604E694143CB446004A3177 /* AboutController.h */,
+				E604E695143CB446004A3177 /* AboutController.m */,
+				E604E696143CB446004A3177 /* AboutController.xib */,
+				E605F825143CDB2400C10658 /* WebViewController.h */,
+				E605F826143CDB2400C10658 /* WebViewController.m */,
+				E605F827143CDB2400C10658 /* WebViewController.xib */,
 			);
 			path = Azbuka;
 			sourceTree = "<group>";
@@ -406,6 +465,11 @@
 				E66067D3142A9A9C00F2FEA1 /* palette_hor.png in Resources */,
 				E66067D4142A9A9C00F2FEA1 /* palette_vert.png in Resources */,
 				E66067D6142AADEC00F2FEA1 /* background.png in Resources */,
+				E604E698143CB446004A3177 /* AboutController.xib in Resources */,
+				E604E69C143CB8DD004A3177 /* about-text-background.png in Resources */,
+				E604E69D143CB8DD004A3177 /* who-did-this.png in Resources */,
+				E604E69F143CB921004A3177 /* support-button.png in Resources */,
+				E605F829143CDB2400C10658 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +490,14 @@
 				E637D881141CDFF200FE4A97 /* SoundEffect.m in Sources */,
 				E69626AC1427E9E300CCA12F /* Painting.m in Sources */,
 				E66067CE142A98C600F2FEA1 /* PaletteController.m in Sources */,
+				E604E697143CB446004A3177 /* AboutController.m in Sources */,
+				E604E6A4143CC87C004A3177 /* UIAlertView+Utils.m in Sources */,
+				E604E6A7143CC896004A3177 /* NSError+Utils.m in Sources */,
+				E604E6AC143CC8B4004A3177 /* NSArray+Utils.m in Sources */,
+				E604E6AD143CC8B4004A3177 /* NSObject+Invocation.m in Sources */,
+				E604E6B0143CC8C6004A3177 /* NSObject+Utils.m in Sources */,
+				E604E6B3143CC8E6004A3177 /* NSMutableArray+Utils.m in Sources */,
+				E605F828143CDB2400C10658 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

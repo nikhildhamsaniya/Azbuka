@@ -4,6 +4,7 @@
 #import "LetterView.h"
 #import "Painting.h"
 #import "CGGeometry+Utils.h"
+#import "AboutController.h"
 
 @implementation AzbukaViewController
 
@@ -97,6 +98,21 @@
 
 -(void)paletteDidSelectTool:(PaintingTool*)tool{
     [deskView.exposedLetter setPaintingTool:tool];
+}
+
+#pragma mark AboutControllerDelegate
+
+-(void)aboutControllerWantToDismiss:(AboutController*)ctrl{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark actions
+
+-(IBAction)onAbout{
+    AboutController *ctrl = [AboutController new];
+    ctrl.delegate = self;
+    ctrl.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:ctrl animated:YES];
 }
 
 @end
