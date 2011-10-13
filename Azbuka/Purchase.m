@@ -35,7 +35,7 @@ NSString* kPurchaseEndEvent = @"kPurchaseEndEvent";
 	}
 	
 	[request release];
-	request = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:@"com.gingerpapa.Azbuka.donate"]];
+	request = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:@"com.versolab.azbuka.donation1"]];
 	request.delegate = self;
 	[request start];
 }

@@ -17,7 +17,7 @@
     MFMailComposeViewController *ctrl = [[MFMailComposeViewController alloc] init];
     ctrl.mailComposeDelegate = self;
     [ctrl setToRecipients:[NSArray arrayWithObject:mail]];
-    [ctrl setSubject:@"Дитячья Азбука"];
+    [ctrl setSubject:@"Азбука Детячья"];
     [ctrl setMessageBody:[NSString stringWithFormat:@"Добрый день, %@.\n", name] isHTML:NO];
     
     [self presentModalViewController:ctrl animated:YES];
