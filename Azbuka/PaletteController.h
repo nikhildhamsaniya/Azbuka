@@ -1,33 +1,48 @@
 #import <UIKit/UIKit.h>
 
 @class PaintingTool;
+@class PaletteButtonModel;
 
 @protocol PaletteDelegate
 -(void)paletteDidSelectTool:(PaintingTool*)tool;
 @end
 
 @interface PaletteController : UIViewController {
+    IBOutlet UIButton* lightblueBtnHor;
+    IBOutlet UIButton* lightblueBtnVert;
+    IBOutlet UIButton* blueBtnHor;
+    IBOutlet UIButton* blueBtnVert;
+    IBOutlet UIButton* violetBtnHor;
+    IBOutlet UIButton* violetBtnVert;
+    IBOutlet UIButton* greenBtnHor;
+    IBOutlet UIButton* greenBtnVert;
+    IBOutlet UIButton* redBtnHor;
+    IBOutlet UIButton* redBtnVert;
+    IBOutlet UIButton* orangeBtnHor;
+    IBOutlet UIButton* orangeBtnVert;
+    IBOutlet UIButton* yellowBtnHor;
+    IBOutlet UIButton* yellowBtnVert;
+    IBOutlet UIButton* brownBtnHor;
+    IBOutlet UIButton* brownBtnVert;
+    IBOutlet UIButton* blackBtnHor;
+    IBOutlet UIButton* blackBtnVert;
+    IBOutlet UIButton* eraseBtnHor;
+    IBOutlet UIButton* eraseBtnVert;
+    
+    NSMutableArray *buttonModels;
+    PaletteButtonModel *selectedButton;
+    
     IBOutlet UIView* horPalette;
     IBOutlet UIView* vertPalette;
     
-    PaintingTool *selectedTool;
     id<PaletteDelegate> delegate;
 }
-@property(nonatomic, retain, readonly) PaintingTool *selectedTool;
+@property(nonatomic, readonly) PaintingTool *selectedTool;
 @property(nonatomic, assign) id<PaletteDelegate> delegate;
 
 -(void)loadHorizontalView;
 -(void)loadVerticalView;
 
--(IBAction)onLightBlue;
--(IBAction)onBlue;
--(IBAction)onViolet;
--(IBAction)onGreen;
--(IBAction)onRed;
--(IBAction)onOrange;
--(IBAction)onYellow;
--(IBAction)onBrown;
--(IBAction)onBlack;
--(IBAction)onErase;
+-(IBAction)onToolSelected:(id)toolButton;
 
 @end

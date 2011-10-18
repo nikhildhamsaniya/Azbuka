@@ -15,7 +15,7 @@
 		<string>icon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.versolab.GriffinAzbuka</string>
+	<string>com.gingerpapa.Azbuka</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

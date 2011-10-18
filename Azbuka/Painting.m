@@ -1,4 +1,5 @@
 #import "Painting.h"
+#import "SoundEffect.h"
 
 @interface Painting()
 @property(nonatomic, retain, readwrite)PaintingTool *lastTool;
@@ -35,6 +36,7 @@
 @implementation PaintingTool
 -(void)configureDrawer:(id<PaintingDrawer>)drawer forPainting:(Painting*)painting{}
 -(void)setInPainting:(Painting *)painting{}
+-(SoundEffect*)soundEffect{return [SoundEffect selectBrushEffect];}
 @end
 
 // eraser  implementation

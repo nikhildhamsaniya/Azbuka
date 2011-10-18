@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+@class SoundEffect;
 
 @class Painting;
 @class Brush;
@@ -21,6 +22,7 @@
 @interface PaintingTool : NSObject
 -(void)setInPainting:(Painting*)painting;
 -(void)configureDrawer:(id<PaintingDrawer>)drawer forPainting:(Painting*)painting;
+@property(nonatomic, readonly) SoundEffect* soundEffect;
 @end
 
 @interface Eraser : PaintingTool
