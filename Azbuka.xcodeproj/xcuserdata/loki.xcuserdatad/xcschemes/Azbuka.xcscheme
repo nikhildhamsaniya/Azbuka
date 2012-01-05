@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E6D07E9D140C29810005BF02"
+               BlueprintIdentifier = "E613CA0014B5A32A00F58078"
                BuildableName = "Azbuka.app"
                BlueprintName = "Azbuka"
                ReferencedContainer = "container:Azbuka.xcodeproj">
@@ -22,25 +22,35 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E613CA0014B5A32A00F58078"
+            BuildableName = "Azbuka.app"
+            BlueprintName = "Azbuka"
+            ReferencedContainer = "container:Azbuka.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
-      displayScaleIsEnabled = "NO"
-      displayScale = "1.00"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES"
+      enablesOpenGLESFrameCapture = "YES"
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6D07E9D140C29810005BF02"
+            BlueprintIdentifier = "E613CA0014B5A32A00F58078"
             BuildableName = "Azbuka.app"
             BlueprintName = "Azbuka"
             ReferencedContainer = "container:Azbuka.xcodeproj">
@@ -50,16 +60,15 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      displayScaleIsEnabled = "NO"
-      displayScale = "1.00"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release">
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E6D07E9D140C29810005BF02"
+            BlueprintIdentifier = "E613CA0014B5A32A00F58078"
             BuildableName = "Azbuka.app"
             BlueprintName = "Azbuka"
             ReferencedContainer = "container:Azbuka.xcodeproj">
